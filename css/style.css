@@ -140,6 +140,20 @@ header{
 }
 .nav-cta:hover{ background:var(--ink); color:var(--bg); }
 
+.nav-rfm{
+  font-family:var(--font-mono);
+  font-size:0.75rem;
+  letter-spacing:0.04em;
+  text-transform:uppercase;
+  border:1px solid var(--accent);
+  color:var(--accent) !important;
+  padding:9px 16px;
+  text-decoration:none;
+  transition:background 0.2s ease, color 0.2s ease;
+}
+.nav-rfm::after{ display:none; }
+.nav-rfm:hover{ background:var(--accent); color:var(--bg) !important; }
+
 #nav-toggle{ display:none; }
 .burger{ display:none; }
 
