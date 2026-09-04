@@ -5,7 +5,7 @@
   var closeBtn = document.getElementById('chat-close');
   var questionsWrap = document.getElementById('chat-questions');
 
-  if (!toggle || !panel || !body || !closeBtn || !questionsWrap || !window.CHAT_FAQ) return;
+  if (!toggle || !panel || !body || !closeBtn || !questionsWrap || !window.CHAT_FAQ_I18N) return;
 
   function scrollToBottom(){ body.scrollTop = body.scrollHeight; }
 
@@ -54,17 +54,25 @@
     }, 500);
   }
 
-  window.CHAT_FAQ.forEach(function(item){
-    var btn = document.createElement('button');
-    btn.type = 'button';
-    btn.className = 'chat-q-btn';
-    btn.textContent = item.q;
-    btn.addEventListener('click', function(){
-      addUserBubble(item.q);
-      showTyping(function(){ addBotBubble(item.a); });
+  function renderQuestions(){
+    var lang = (window.RF_getLang && window.RF_getLang()) || 'es';
+    var faq = window.CHAT_FAQ_I18N[lang] || window.CHAT_FAQ_I18N.es;
+    questionsWrap.innerHTML = '';
+    faq.forEach(function(item){
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'chat-q-btn';
+      btn.textContent = item.q;
+      btn.addEventListener('click', function(){
+        addUserBubble(item.q);
+        showTyping(function(){ addBotBubble(item.a); });
+      });
+      questionsWrap.appendChild(btn);
     });
-    questionsWrap.appendChild(btn);
-  });
+  }
+
+  window.addEventListener('rf:langchange', renderQuestions);
+  renderQuestions();
 
   toggle.addEventListener('click', function(){
     panel.classList.toggle('open');

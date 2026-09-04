@@ -2,6 +2,14 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8" />
+<script>
+  (function(){
+    try{
+      var t = localStorage.getItem('rf-theme');
+      if (t) document.documentElement.setAttribute('data-theme', t);
+    }catch(e){}
+  })();
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>RF. estudio — Arquitectura, interiorismo y paisajismo</title>
 <meta name="description" content="RF. estudio: arquitectura, interiorismo y paisajismo. Proyecto, diseño y dirección de obra de principio a fin." />
@@ -15,22 +23,35 @@
 <header>
   <nav class="nav wrap">
     <a href="#inicio" class="logo">RF.<span>ESTUDIO</span></a>
-    <input type="checkbox" id="nav-toggle" aria-hidden="true">
-    <ul class="nav-links">
-      <li>
-        <a href="rfm.html" class="nav-rfm">
-          <svg viewBox="0 0 24 24"><path d="M4 11 L12 4 L20 11"/><path d="M6 10 V20 H18 V10"/></svg>
-          RFM
-        </a>
-      </li>
-      <li><a href="#servicios">Servicios</a></li>
-      <li><a href="#proyectos">Proyectos</a></li>
-      <li><a href="#estudio">Estudio</a></li>
-      <li><a href="#contacto" class="nav-cta">Contacto</a></li>
-    </ul>
-    <label class="burger" for="nav-toggle" aria-label="Abrir menú">
-      <span></span><span></span><span></span>
-    </label>
+    <div class="nav-right">
+      <input type="checkbox" id="nav-toggle" aria-hidden="true">
+      <ul class="nav-links">
+        <li>
+          <a href="rfm.html" class="nav-rfm">
+            <svg viewBox="0 0 24 24"><path d="M4 11 L12 4 L20 11"/><path d="M6 10 V20 H18 V10"/></svg>
+            RFM
+          </a>
+        </li>
+        <li><a href="#servicios" data-i18n="nav.servicios">Servicios</a></li>
+        <li><a href="#proyectos" data-i18n="nav.proyectos">Proyectos</a></li>
+        <li><a href="#estudio" data-i18n="nav.estudio">Estudio</a></li>
+        <li><a href="#contacto" class="nav-cta" data-i18n="nav.contacto">Contacto</a></li>
+      </ul>
+      <div class="nav-tools">
+        <div class="lang-switch" role="group" aria-label="Idioma">
+          <button class="lang-btn" data-lang="es" type="button">ES</button>
+          <button class="lang-btn" data-lang="en" type="button">EN</button>
+          <button class="lang-btn" data-lang="pt" type="button">PT</button>
+        </div>
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Cambiar tema">
+          <svg class="icon-moon" viewBox="0 0 24 24"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.6" y1="4.6" x2="6.7" y2="6.7"/><line x1="17.3" y1="17.3" x2="19.4" y2="19.4"/><line x1="4.6" y1="19.4" x2="6.7" y2="17.3"/><line x1="17.3" y1="6.7" x2="19.4" y2="4.6"/></svg>
+        </button>
+      </div>
+      <label class="burger" for="nav-toggle" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </label>
+    </div>
   </nav>
 </header>
 
@@ -40,12 +61,12 @@
   <section id="inicio" style="border-top:none;">
     <div class="wrap hero">
       <div>
-        <p class="eyebrow">ARQUITECTURA · INTERIORISMO · PAISAJISMO</p>
-        <h1>Diseñamos espacios que <em>se habitan bien</em></h1>
-        <p>RF. estudio acompaña cada proyecto de principio a fin: del primer boceto a la última terminación, integrando arquitectura, interiorismo y paisajismo en una misma mirada.</p>
+        <p class="eyebrow" data-i18n="hero.eyebrow">ARQUITECTURA · INTERIORISMO · PAISAJISMO</p>
+        <h1 data-i18n="hero.h1">Diseñamos espacios que <em>se habitan bien</em></h1>
+        <p data-i18n="hero.p">RF. estudio acompaña cada proyecto de principio a fin: del primer boceto a la última terminación, integrando arquitectura, interiorismo y paisajismo en una misma mirada.</p>
         <div class="hero-actions">
-          <a class="btn-primary" href="mailto:rf.estudioarquitectura@gmail.com">Escribinos →</a>
-          <a class="btn-ghost" href="#proyectos">Ver proyectos</a>
+          <a class="btn-primary" href="mailto:rf.estudioarquitectura@gmail.com" data-i18n="hero.cta1">Escribinos →</a>
+          <a class="btn-ghost" href="#proyectos" data-i18n="hero.cta2">Ver proyectos</a>
         </div>
       </div>
 
@@ -71,7 +92,7 @@
           <line class="plan-line delay2 soft" x1="272" y1="60" x2="272" y2="36" />
           <path class="plan-line delay2 soft" d="M266 44 L272 36 L278 44" />
         </svg>
-        <span class="tag">PLANTA — ESC. 1:100</span>
+        <span class="tag" data-i18n="hero.tag">PLANTA — ESC. 1:100</span>
       </div>
     </div>
   </section>
@@ -80,31 +101,31 @@
   <section id="servicios">
     <div class="wrap">
       <div class="section-head reveal">
-        <p class="eyebrow">01 — SERVICIOS</p>
-        <h2>Qué hacemos</h2>
-        <p>Trabajamos en equipo desde la idea hasta la obra terminada, con una mirada que integra las tres disciplinas del estudio.</p>
+        <p class="eyebrow" data-i18n="servicios.eyebrow">01 — SERVICIOS</p>
+        <h2 data-i18n="servicios.h2">Qué hacemos</h2>
+        <p data-i18n="servicios.p">Trabajamos en equipo desde la idea hasta la obra terminada, con una mirada que integra las tres disciplinas del estudio.</p>
       </div>
 
       <div class="services-grid">
         <div class="service-card reveal">
           <svg class="icon" viewBox="0 0 40 40"><path d="M6 32 L20 8 L34 32 Z"/><rect x="15" y="22" width="10" height="10"/><line x1="4" y1="32" x2="36" y2="32"/></svg>
-          <h3>Arquitectura</h3>
-          <p>Proyecto, diseño y dirección de obra, desde la vivienda unifamiliar hasta el desarrollo residencial.</p>
+          <h3 data-i18n="servicios.item1.title">Arquitectura</h3>
+          <p data-i18n="servicios.item1.desc">Proyecto, diseño y dirección de obra, desde la vivienda unifamiliar hasta el desarrollo residencial.</p>
         </div>
         <div class="service-card reveal">
           <svg class="icon" viewBox="0 0 40 40"><rect x="6" y="6" width="28" height="28"/><rect x="12" y="20" width="10" height="8"/><line x1="24" y1="12" x2="30" y2="12"/><line x1="24" y1="16" x2="30" y2="16"/></svg>
-          <h3>Interiorismo</h3>
-          <p>Definición de materiales, mobiliario e iluminación para que cada ambiente funcione y se sienta propio.</p>
+          <h3 data-i18n="servicios.item2.title">Interiorismo</h3>
+          <p data-i18n="servicios.item2.desc">Definición de materiales, mobiliario e iluminación para que cada ambiente funcione y se sienta propio.</p>
         </div>
         <div class="service-card reveal">
           <svg class="icon" viewBox="0 0 40 40"><line x1="20" y1="8" x2="20" y2="34"/><path d="M20 8 C12 12 12 20 20 22 C28 20 28 12 20 8 Z"/><path d="M20 16 C14 19 15 25 20 26 C25 25 26 19 20 16 Z"/></svg>
-          <h3>Paisajismo</h3>
-          <p>Diseño de espacios verdes y exteriores integrados a la arquitectura del proyecto.</p>
+          <h3 data-i18n="servicios.item3.title">Paisajismo</h3>
+          <p data-i18n="servicios.item3.desc">Diseño de espacios verdes y exteriores integrados a la arquitectura del proyecto.</p>
         </div>
         <div class="service-card reveal">
           <svg class="icon" viewBox="0 0 40 40"><rect x="9" y="6" width="22" height="28"/><line x1="14" y1="14" x2="26" y2="14"/><line x1="14" y1="20" x2="26" y2="20"/><line x1="14" y1="26" x2="22" y2="26"/></svg>
-          <h3>Gestión de obra</h3>
-          <p>Seguimiento técnico y administrativo de la obra, de principio a fin.</p>
+          <h3 data-i18n="servicios.item4.title">Gestión de obra</h3>
+          <p data-i18n="servicios.item4.desc">Seguimiento técnico y administrativo de la obra, de principio a fin.</p>
         </div>
       </div>
     </div>
@@ -114,9 +135,9 @@
   <section id="proyectos">
     <div class="wrap">
       <div class="section-head reveal">
-        <p class="eyebrow">02 — PROYECTOS</p>
-        <h2>Una mirada a nuestro trabajo</h2>
-        <p>Una selección de obras y proyectos en desarrollo del estudio.</p>
+        <p class="eyebrow" data-i18n="proyectos.eyebrow">02 — PROYECTOS</p>
+        <h2 data-i18n="proyectos.h2">Una mirada a nuestro trabajo</h2>
+        <p data-i18n="proyectos.p">Una selección de obras y proyectos en desarrollo del estudio.</p>
       </div>
 
       <div class="projects-grid">
@@ -124,28 +145,28 @@
           <div class="project-figure">
             <svg viewBox="0 0 120 90"><path d="M15 70 L60 20 L105 70 Z"/><rect x="35" y="45" width="20" height="25"/><line x1="10" y1="70" x2="110" y2="70"/></svg>
           </div>
-          <div class="project-meta"><h3>Vivienda unifamiliar</h3><span>01</span></div>
+          <div class="project-meta"><h3 data-i18n="proyectos.item1">Vivienda unifamiliar</h3><span>01</span></div>
         </div>
         <div class="project-card reveal">
           <div class="project-figure">
             <svg viewBox="0 0 120 90"><rect x="15" y="20" width="90" height="50"/><line x1="60" y1="20" x2="60" y2="70"/><rect x="70" y="40" width="24" height="18"/></svg>
           </div>
-          <div class="project-meta"><h3>Renovación &amp; interiorismo</h3><span>02</span></div>
+          <div class="project-meta"><h3 data-i18n="proyectos.item2">Renovación &amp; interiorismo</h3><span>02</span></div>
         </div>
         <div class="project-card reveal">
           <div class="project-figure">
             <svg viewBox="0 0 120 90"><circle cx="45" cy="45" r="18"/><line x1="45" y1="63" x2="45" y2="75"/><path d="M15 75 Q60 55 105 75"/></svg>
           </div>
-          <div class="project-meta"><h3>Espacio exterior &amp; paisajismo</h3><span>03</span></div>
+          <div class="project-meta"><h3 data-i18n="proyectos.item3">Espacio exterior &amp; paisajismo</h3><span>03</span></div>
         </div>
         <div class="project-card reveal">
           <div class="project-figure">
             <svg viewBox="0 0 120 90"><rect x="18" y="34" width="24" height="36"/><rect x="48" y="20" width="24" height="50"/><rect x="78" y="44" width="24" height="26"/></svg>
           </div>
-          <div class="project-meta"><h3>Desarrollo residencial</h3><span>04</span></div>
+          <div class="project-meta"><h3 data-i18n="proyectos.item4">Desarrollo residencial</h3><span>04</span></div>
         </div>
       </div>
-      <p class="projects-note reveal">Estamos sumando el registro fotográfico de nuestros proyectos — muy pronto vas a poder verlos acá.</p>
+      <p class="projects-note reveal" data-i18n="proyectos.note">Estamos sumando el registro fotográfico de nuestros proyectos — muy pronto vas a poder verlos acá.</p>
     </div>
   </section>
 
@@ -153,11 +174,11 @@
   <section id="rfm-bridge" class="bridge-band">
     <div class="wrap bridge-inner">
       <div>
-        <p class="eyebrow">RFM · ALQUILERES</p>
-        <h2>¿Buscás alquilar una casa en Paysandú o Las Termas?</h2>
-        <p>RFM administra casas propias: alquiler con contrato en El Pinar (Canelones) y Paysandú, y alquiler por día en Las Termas.</p>
+        <p class="eyebrow" data-i18n="bridge.eyebrow">RFM · ALQUILERES</p>
+        <h2 data-i18n="bridge.h2">¿Buscás alquilar una casa en Paysandú o Las Termas?</h2>
+        <p data-i18n="bridge.p">RFM administra casas propias: alquiler con contrato en El Pinar (Canelones) y Paysandú, y alquiler por día en Las Termas.</p>
       </div>
-      <a class="btn-primary bridge-btn" href="rfm.html">Ver RFM →</a>
+      <a class="btn-primary bridge-btn" href="rfm.html" data-i18n="bridge.btn">Ver RFM →</a>
     </div>
   </section>
 
@@ -165,25 +186,25 @@
   <section id="estudio">
     <div class="wrap">
       <div class="section-head reveal">
-        <p class="eyebrow">03 — ESTUDIO</p>
-        <h2>Sobre RF. estudio</h2>
+        <p class="eyebrow" data-i18n="estudio.eyebrow">03 — ESTUDIO</p>
+        <h2 data-i18n="estudio.h2">Sobre RF. estudio</h2>
       </div>
 
       <div class="studio-body">
-        <p class="reveal">Creemos en una arquitectura pensada desde el uso real del espacio: precisa en el detalle y atenta al paisaje que la rodea. Trabajamos en equipo, de la idea a la obra, para que cada proyecto sea coherente en todas sus escalas.</p>
+        <p class="reveal" data-i18n="estudio.p">Creemos en una arquitectura pensada desde el uso real del espacio: precisa en el detalle y atenta al paisaje que la rodea. Trabajamos en equipo, de la idea a la obra, para que cada proyecto sea coherente en todas sus escalas.</p>
 
         <div class="team-list reveal">
           <div class="team-row">
             <div class="monogram">JF</div>
-            <div><h3>Julia Ferrero</h3><span class="role">Arquitecta</span></div>
+            <div><h3>Julia Ferrero</h3><span class="role" data-i18n="team.role.f">Arquitecta</span></div>
           </div>
           <div class="team-row">
             <div class="monogram">RF</div>
-            <div><h3>Ronaldo Faust Ferrero</h3><span class="role">Arquitecto</span></div>
+            <div><h3>Ronaldo Faust Ferrero</h3><span class="role" data-i18n="team.role.m">Arquitecto</span></div>
           </div>
           <div class="team-row">
             <div class="monogram">KB</div>
-            <div><h3>Katiuska Bedolla</h3><span class="role">Arquitecta</span></div>
+            <div><h3>Katiuska Bedolla</h3><span class="role" data-i18n="team.role.f">Arquitecta</span></div>
           </div>
         </div>
       </div>
@@ -194,25 +215,28 @@
   <section id="contacto">
     <div class="wrap">
       <div class="section-head reveal">
-        <p class="eyebrow">04 — CONTACTO</p>
-        <h2>Hablemos de tu proyecto</h2>
+        <p class="eyebrow" data-i18n="contacto.eyebrow">04 — CONTACTO</p>
+        <h2 data-i18n="contacto.h2">Hablemos de tu proyecto</h2>
       </div>
 
       <div class="contact-grid">
         <div class="reveal">
           <a class="contact-email" href="mailto:rf.estudioarquitectura@gmail.com">rf.estudioarquitectura@gmail.com</a>
-          <p>Contanos en qué estás pensando y lo vemos juntos.</p>
+          <p data-i18n="contacto.p">Contanos en qué estás pensando y lo vemos juntos.</p>
         </div>
 
         <div class="social-list reveal">
           <a href="https://www.instagram.com/rf.estudioarq/" target="_blank" rel="noopener">
             <span>Instagram</span><span>@rf.estudioarq</span>
           </a>
+          <a href="https://wa.me/59898357587" target="_blank" rel="noopener">
+            <span>WhatsApp</span><span>098 357 587</span>
+          </a>
           <a href="https://facebook.com/ronaldofarq" target="_blank" rel="noopener">
             <span>Facebook</span><span>@ronaldofarq</span>
           </a>
           <a href="https://linktr.ee/RF.estudio" target="_blank" rel="noopener">
-            <span>Más enlaces</span><span>linktr.ee</span>
+            <span data-i18n="social.mas">Más enlaces</span><span>linktr.ee</span>
           </a>
         </div>
       </div>
@@ -222,9 +246,13 @@
 </main>
 
 <footer class="wrap">
-  <p>© 2026 RF. ESTUDIO — ARQUITECTURA, INTERIORISMO Y PAISAJISMO</p>
-  <a class="back-top" href="#inicio">Volver arriba</a>
+  <p data-i18n="footer.text">© 2026 RF. ESTUDIO — ARQUITECTURA, INTERIORISMO Y PAISAJISMO</p>
+  <a class="back-top" href="#inicio" data-i18n="footer.back">Volver arriba</a>
 </footer>
+
+<a class="whatsapp-btn" href="https://wa.me/59898357587?text=Hola%2C%20quer%C3%ADa%20consultar%20sobre%20un%20proyecto." target="_blank" rel="noopener" aria-label="Escribinos por WhatsApp">
+  <svg viewBox="0 0 32 32" fill="#fff"><path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.485.755 4.795 2.049 6.712L4 29l7.47-1.967A11.94 11.94 0 0 0 16.001 27C22.628 27 28 21.627 28 15S22.628 3 16.001 3zm0 21.818a9.77 9.77 0 0 1-4.98-1.363l-.357-.213-3.55.936.946-3.462-.232-.355A9.78 9.78 0 0 1 6.182 15c0-5.413 4.406-9.818 9.819-9.818S25.818 9.587 25.818 15 21.413 24.818 16.001 24.818zm5.383-7.347c-.294-.147-1.74-.858-2.01-.956-.27-.098-.467-.147-.664.147-.196.294-.762.955-.934 1.152-.172.196-.343.221-.637.074-.294-.147-1.243-.458-2.368-1.462-.875-.78-1.466-1.744-1.638-2.038-.172-.294-.018-.453.129-.6.132-.132.294-.343.441-.515.147-.172.196-.294.294-.49.098-.196.049-.368-.024-.515-.074-.147-.664-1.6-.91-2.192-.24-.577-.484-.5-.664-.51l-.566-.01c-.196 0-.515.074-.784.368-.27.294-1.03 1.006-1.03 2.454 0 1.448 1.054 2.847 1.2 3.043.147.196 2.075 3.168 5.028 4.44.703.303 1.251.484 1.679.62.705.224 1.347.192 1.854.117.566-.084 1.74-.711 1.985-1.398.245-.686.245-1.274.172-1.398-.074-.123-.27-.196-.564-.343z"/></svg>
+</a>
 
 <button id="chat-toggle" class="chat-toggle" type="button" aria-label="Abrir chat de preguntas frecuentes">
   <svg viewBox="0 0 24 24"><path d="M4 5h16v11H8l-4 3z"/></svg>
@@ -233,30 +261,130 @@
   <div class="chat-header">
     <div class="chat-header-id">
       <div class="chat-avatar">RF</div>
-      <strong>¿En qué te ayudamos?</strong>
+      <strong data-i18n="chat.title">¿En qué te ayudamos?</strong>
     </div>
     <button id="chat-close" class="chat-close" type="button" aria-label="Cerrar chat">✕</button>
   </div>
   <div id="chat-body" class="chat-body">
     <div class="chat-row bot">
       <div class="chat-avatar-sm">RF</div>
-      <div class="chat-bubble bot">Elegí una pregunta de abajo y te respondo al toque.</div>
+      <div class="chat-bubble bot" data-i18n="chat.greeting">Elegí una pregunta de abajo y te respondo al toque.</div>
     </div>
   </div>
   <div id="chat-questions" class="chat-questions"></div>
   <div class="chat-footer">
-    <a href="mailto:rf.estudioarquitectura@gmail.com">¿Otra consulta? Escribinos por mail →</a>
+    <a href="mailto:rf.estudioarquitectura@gmail.com" data-i18n="chat.footer">¿Otra consulta? Escribinos por mail →</a>
   </div>
 </div>
 
 <script>
-  window.CHAT_FAQ = [
-    { q: '¿Qué servicios ofrecen?', a: 'Arquitectura, interiorismo, paisajismo y gestión de obra — desde el proyecto hasta la obra terminada.' },
-    { q: '¿Cómo los contacto?', a: 'Escribinos a rf.estudioarquitectura@gmail.com o por Instagram @rf.estudioarq.' },
-    { q: '¿Puedo ver proyectos anteriores?', a: 'Sí, mirá la sección Proyectos más arriba en esta página.' },
-    { q: '¿Hacen desarrollos para alquilar o invertir?', a: 'Sí, esa parte la maneja RFM — mirá el link RFM en el menú.' }
-  ];
+  window.I18N = {
+    es: {
+      'nav.servicios': 'Servicios', 'nav.proyectos': 'Proyectos', 'nav.estudio': 'Estudio', 'nav.contacto': 'Contacto',
+      'hero.eyebrow': 'ARQUITECTURA · INTERIORISMO · PAISAJISMO',
+      'hero.h1': 'Diseñamos espacios que <em>se habitan bien</em>',
+      'hero.p': 'RF. estudio acompaña cada proyecto de principio a fin: del primer boceto a la última terminación, integrando arquitectura, interiorismo y paisajismo en una misma mirada.',
+      'hero.cta1': 'Escribinos →', 'hero.cta2': 'Ver proyectos', 'hero.tag': 'PLANTA — ESC. 1:100',
+      'servicios.eyebrow': '01 — SERVICIOS', 'servicios.h2': 'Qué hacemos',
+      'servicios.p': 'Trabajamos en equipo desde la idea hasta la obra terminada, con una mirada que integra las tres disciplinas del estudio.',
+      'servicios.item1.title': 'Arquitectura', 'servicios.item1.desc': 'Proyecto, diseño y dirección de obra, desde la vivienda unifamiliar hasta el desarrollo residencial.',
+      'servicios.item2.title': 'Interiorismo', 'servicios.item2.desc': 'Definición de materiales, mobiliario e iluminación para que cada ambiente funcione y se sienta propio.',
+      'servicios.item3.title': 'Paisajismo', 'servicios.item3.desc': 'Diseño de espacios verdes y exteriores integrados a la arquitectura del proyecto.',
+      'servicios.item4.title': 'Gestión de obra', 'servicios.item4.desc': 'Seguimiento técnico y administrativo de la obra, de principio a fin.',
+      'proyectos.eyebrow': '02 — PROYECTOS', 'proyectos.h2': 'Una mirada a nuestro trabajo',
+      'proyectos.p': 'Una selección de obras y proyectos en desarrollo del estudio.',
+      'proyectos.item1': 'Vivienda unifamiliar', 'proyectos.item2': 'Renovación &amp; interiorismo', 'proyectos.item3': 'Espacio exterior &amp; paisajismo', 'proyectos.item4': 'Desarrollo residencial',
+      'proyectos.note': 'Estamos sumando el registro fotográfico de nuestros proyectos — muy pronto vas a poder verlos acá.',
+      'bridge.eyebrow': 'RFM · ALQUILERES', 'bridge.h2': '¿Buscás alquilar una casa en Paysandú o Las Termas?',
+      'bridge.p': 'RFM administra casas propias: alquiler con contrato en El Pinar (Canelones) y Paysandú, y alquiler por día en Las Termas.',
+      'bridge.btn': 'Ver RFM →',
+      'estudio.eyebrow': '03 — ESTUDIO', 'estudio.h2': 'Sobre RF. estudio',
+      'estudio.p': 'Creemos en una arquitectura pensada desde el uso real del espacio: precisa en el detalle y atenta al paisaje que la rodea. Trabajamos en equipo, de la idea a la obra, para que cada proyecto sea coherente en todas sus escalas.',
+      'team.role.f': 'Arquitecta', 'team.role.m': 'Arquitecto',
+      'contacto.eyebrow': '04 — CONTACTO', 'contacto.h2': 'Hablemos de tu proyecto', 'contacto.p': 'Contanos en qué estás pensando y lo vemos juntos.',
+      'social.mas': 'Más enlaces',
+      'footer.text': '© 2026 RF. ESTUDIO — ARQUITECTURA, INTERIORISMO Y PAISAJISMO', 'footer.back': 'Volver arriba',
+      'chat.title': '¿En qué te ayudamos?', 'chat.greeting': 'Elegí una pregunta de abajo y te respondo al toque.', 'chat.footer': '¿Otra consulta? Escribinos por mail →'
+    },
+    en: {
+      'nav.servicios': 'Services', 'nav.proyectos': 'Projects', 'nav.estudio': 'Studio', 'nav.contacto': 'Contact',
+      'hero.eyebrow': 'ARCHITECTURE · INTERIOR DESIGN · LANDSCAPING',
+      'hero.h1': 'We design spaces that <em>live well</em>',
+      'hero.p': 'RF. estudio supports every project from start to finish: from the first sketch to the last finish, bringing architecture, interior design and landscaping together in one vision.',
+      'hero.cta1': 'Get in touch →', 'hero.cta2': 'See projects', 'hero.tag': 'FLOOR PLAN — SCALE 1:100',
+      'servicios.eyebrow': '01 — SERVICES', 'servicios.h2': 'What we do',
+      'servicios.p': "We work as a team from the idea to the finished building, with a view that brings the studio's three disciplines together.",
+      'servicios.item1.title': 'Architecture', 'servicios.item1.desc': 'Design, planning and site management, from single-family homes to residential developments.',
+      'servicios.item2.title': 'Interior design', 'servicios.item2.desc': 'Choosing materials, furniture and lighting so every room works and feels like your own.',
+      'servicios.item3.title': 'Landscaping', 'servicios.item3.desc': "Design of green and outdoor spaces integrated with the project's architecture.",
+      'servicios.item4.title': 'Site management', 'servicios.item4.desc': 'Technical and administrative follow-up of the build, from start to finish.',
+      'proyectos.eyebrow': '02 — PROJECTS', 'proyectos.h2': 'A look at our work',
+      'proyectos.p': "A selection of the studio's built work and projects underway.",
+      'proyectos.item1': 'Single-family home', 'proyectos.item2': 'Renovation &amp; interior design', 'proyectos.item3': 'Outdoor space &amp; landscaping', 'proyectos.item4': 'Residential development',
+      'proyectos.note': "We're putting together the photos of our projects — you'll be able to see them here soon.",
+      'bridge.eyebrow': 'RFM · RENTALS', 'bridge.h2': 'Looking to rent a house in Paysandú or Las Termas?',
+      'bridge.p': 'RFM manages its own houses: long-term contract rentals in El Pinar (Canelones) and Paysandú, and daily rentals in Las Termas.',
+      'bridge.btn': 'See RFM →',
+      'estudio.eyebrow': '03 — STUDIO', 'estudio.h2': 'About RF. estudio',
+      'estudio.p': "We believe in architecture designed around how a space is really used: precise in its details and attentive to the landscape around it. We work as a team, from idea to build, so every project stays coherent at every scale.",
+      'team.role.f': 'Architect', 'team.role.m': 'Architect',
+      'contacto.eyebrow': '04 — CONTACT', 'contacto.h2': "Let's talk about your project", 'contacto.p': "Tell us what you have in mind and we'll figure it out together.",
+      'social.mas': 'More links',
+      'footer.text': '© 2026 RF. ESTUDIO — ARCHITECTURE, INTERIOR DESIGN AND LANDSCAPING', 'footer.back': 'Back to top',
+      'chat.title': 'How can we help?', 'chat.greeting': "Pick a question below and I'll answer right away.", 'chat.footer': 'Another question? Email us →'
+    },
+    pt: {
+      'nav.servicios': 'Serviços', 'nav.proyectos': 'Projetos', 'nav.estudio': 'Estúdio', 'nav.contacto': 'Contato',
+      'hero.eyebrow': 'ARQUITETURA · DESIGN DE INTERIORES · PAISAGISMO',
+      'hero.h1': 'Projetamos espaços que <em>se habitam bem</em>',
+      'hero.p': 'A RF. estudio acompanha cada projeto do início ao fim: do primeiro esboço ao último acabamento, integrando arquitetura, design de interiores e paisagismo em um mesmo olhar.',
+      'hero.cta1': 'Fale conosco →', 'hero.cta2': 'Ver projetos', 'hero.tag': 'PLANTA — ESC. 1:100',
+      'servicios.eyebrow': '01 — SERVIÇOS', 'servicios.h2': 'O que fazemos',
+      'servicios.p': 'Trabalhamos em equipe desde a ideia até a obra concluída, com um olhar que integra as três disciplinas do estúdio.',
+      'servicios.item1.title': 'Arquitetura', 'servicios.item1.desc': 'Projeto, design e direção de obra, da casa unifamiliar ao empreendimento residencial.',
+      'servicios.item2.title': 'Design de interiores', 'servicios.item2.desc': 'Definição de materiais, mobiliário e iluminação para que cada ambiente funcione e tenha identidade própria.',
+      'servicios.item3.title': 'Paisagismo', 'servicios.item3.desc': 'Design de espaços verdes e exteriores integrados à arquitetura do projeto.',
+      'servicios.item4.title': 'Gestão de obra', 'servicios.item4.desc': 'Acompanhamento técnico e administrativo da obra, do início ao fim.',
+      'proyectos.eyebrow': '02 — PROJETOS', 'proyectos.h2': 'Um olhar sobre nosso trabalho',
+      'proyectos.p': 'Uma seleção de obras e projetos em desenvolvimento do estúdio.',
+      'proyectos.item1': 'Casa unifamiliar', 'proyectos.item2': 'Renovação &amp; design de interiores', 'proyectos.item3': 'Espaço exterior &amp; paisagismo', 'proyectos.item4': 'Empreendimento residencial',
+      'proyectos.note': 'Estamos reunindo o registro fotográfico dos nossos projetos — em breve você vai poder vê-los aqui.',
+      'bridge.eyebrow': 'RFM · ALUGUÉIS', 'bridge.h2': 'Procurando alugar uma casa em Paysandú ou Las Termas?',
+      'bridge.p': 'A RFM administra casas próprias: aluguel com contrato em El Pinar (Canelones) e Paysandú, e aluguel por dia em Las Termas.',
+      'bridge.btn': 'Ver RFM →',
+      'estudio.eyebrow': '03 — ESTÚDIO', 'estudio.h2': 'Sobre a RF. estudio',
+      'estudio.p': 'Acreditamos em uma arquitetura pensada a partir do uso real do espaço: precisa no detalhe e atenta à paisagem ao redor. Trabalhamos em equipe, da ideia à obra, para que cada projeto seja coerente em todas as suas escalas.',
+      'team.role.f': 'Arquiteta', 'team.role.m': 'Arquiteto',
+      'contacto.eyebrow': '04 — CONTATO', 'contacto.h2': 'Vamos falar sobre o seu projeto', 'contacto.p': 'Conte pra gente o que você está pensando e vemos juntos.',
+      'social.mas': 'Mais links',
+      'footer.text': '© 2026 RF. ESTUDIO — ARQUITETURA, DESIGN DE INTERIORES E PAISAGISMO', 'footer.back': 'Voltar ao topo',
+      'chat.title': 'Como podemos ajudar?', 'chat.greeting': 'Escolha uma pergunta abaixo e respondo na hora.', 'chat.footer': 'Outra dúvida? Escreva pra gente →'
+    }
+  };
+
+  window.CHAT_FAQ_I18N = {
+    es: [
+      { q: '¿Qué servicios ofrecen?', a: 'Arquitectura, interiorismo, paisajismo y gestión de obra — desde el proyecto hasta la obra terminada.' },
+      { q: '¿Cómo los contacto?', a: 'Escribinos a rf.estudioarquitectura@gmail.com, por WhatsApp o por Instagram @rf.estudioarq.' },
+      { q: '¿Puedo ver proyectos anteriores?', a: 'Sí, mirá la sección Proyectos más arriba en esta página.' },
+      { q: '¿Hacen desarrollos para alquilar o invertir?', a: 'Sí, esa parte la maneja RFM — mirá el link RFM en el menú.' }
+    ],
+    en: [
+      { q: 'What services do you offer?', a: 'Architecture, interior design, landscaping and site management — from the project to the finished build.' },
+      { q: 'How do I contact you?', a: 'Email us at rf.estudioarquitectura@gmail.com, on WhatsApp, or on Instagram @rf.estudioarq.' },
+      { q: 'Can I see past projects?', a: 'Yes, check out the Projects section further up this page.' },
+      { q: 'Do you handle rentals or investments?', a: 'Yes, that side is run by RFM — see the RFM link in the menu.' }
+    ],
+    pt: [
+      { q: 'Quais serviços vocês oferecem?', a: 'Arquitetura, design de interiores, paisagismo e gestão de obra — do projeto até a obra concluída.' },
+      { q: 'Como entro em contato?', a: 'Escreva para rf.estudioarquitectura@gmail.com, pelo WhatsApp ou pelo Instagram @rf.estudioarq.' },
+      { q: 'Posso ver projetos anteriores?', a: 'Sim, veja a seção Projetos mais acima nesta página.' },
+      { q: 'Vocês cuidam de aluguéis ou investimentos?', a: 'Sim, essa parte é da RFM — veja o link RFM no menu.' }
+    ]
+  };
 </script>
+<script src="js/theme.js"></script>
+<script src="js/i18n.js"></script>
 <script src="js/script.js"></script>
 <script src="js/chat.js"></script>
 

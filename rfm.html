@@ -2,6 +2,14 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8" />
+<script>
+  (function(){
+    try{
+      var t = localStorage.getItem('rf-theme');
+      if (t) document.documentElement.setAttribute('data-theme', t);
+    }catch(e){}
+  })();
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>RFM — Casas en alquiler en Canelones y Las Termas</title>
 <meta name="description" content="RFM administra casas propias en alquiler: contrato en El Pinar, Canelones, y alquiler por día en Las Termas." />
@@ -16,16 +24,29 @@
 <header>
   <nav class="nav wrap">
     <a href="rfm.html" class="logo">RFM<span>ALQUILERES</span></a>
-    <input type="checkbox" id="nav-toggle" aria-hidden="true">
-    <ul class="nav-links">
-      <li><a href="index.html" class="nav-back">← RF. estudio</a></li>
-      <li><a href="#casas">Casas</a></li>
-      <li><a href="#como-alquilar">Cómo alquilar</a></li>
-      <li><a href="#contacto" class="nav-cta">Contacto</a></li>
-    </ul>
-    <label class="burger" for="nav-toggle" aria-label="Abrir menú">
-      <span></span><span></span><span></span>
-    </label>
+    <div class="nav-right">
+      <input type="checkbox" id="nav-toggle" aria-hidden="true">
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-back">← RF. estudio</a></li>
+        <li><a href="#casas" data-i18n="nav.casas">Casas</a></li>
+        <li><a href="#como-alquilar" data-i18n="nav.como">Cómo alquilar</a></li>
+        <li><a href="#contacto" class="nav-cta" data-i18n="nav.contacto">Contacto</a></li>
+      </ul>
+      <div class="nav-tools">
+        <div class="lang-switch" role="group" aria-label="Idioma">
+          <button class="lang-btn" data-lang="es" type="button">ES</button>
+          <button class="lang-btn" data-lang="en" type="button">EN</button>
+          <button class="lang-btn" data-lang="pt" type="button">PT</button>
+        </div>
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Cambiar tema">
+          <svg class="icon-moon" viewBox="0 0 24 24"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.6" y1="4.6" x2="6.7" y2="6.7"/><line x1="17.3" y1="17.3" x2="19.4" y2="19.4"/><line x1="4.6" y1="19.4" x2="6.7" y2="17.3"/><line x1="17.3" y1="6.7" x2="19.4" y2="4.6"/></svg>
+        </button>
+      </div>
+      <label class="burger" for="nav-toggle" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </label>
+    </div>
   </nav>
 </header>
 
@@ -35,12 +56,12 @@
   <section id="inicio" style="border-top:none;">
     <div class="wrap hero">
       <div>
-        <p class="eyebrow">RFM · CASAS PROPIAS EN ALQUILER</p>
-        <h1>Casas propias, listas para <em>vivir o descansar</em></h1>
-        <p>RFM administra casas propias en El Pinar (Canelones), Paysandú y Las Termas: alquiler con contrato para instalarte, y alquiler por día para tu próxima escapada.</p>
+        <p class="eyebrow" data-i18n="hero.eyebrow">RFM · CASAS PROPIAS EN ALQUILER</p>
+        <h1 data-i18n="hero.h1">Casas propias, listas para <em>vivir o descansar</em></h1>
+        <p data-i18n="hero.p">RFM administra casas propias en El Pinar (Canelones), Paysandú y Las Termas: alquiler con contrato para instalarte, y alquiler por día para tu próxima escapada.</p>
         <div class="hero-actions">
-          <a class="btn-primary" href="mailto:rf.estudioarquitectura@gmail.com?subject=Consulta%20de%20alquiler%20RFM">Consultar disponibilidad →</a>
-          <a class="btn-ghost" href="#casas">Ver casas</a>
+          <a class="btn-primary" href="mailto:rf.estudioarquitectura@gmail.com?subject=Consulta%20de%20alquiler%20RFM" data-i18n="hero.cta1">Consultar disponibilidad →</a>
+          <a class="btn-ghost" href="#casas" data-i18n="hero.cta2">Ver casas</a>
         </div>
       </div>
 
@@ -63,7 +84,7 @@
           <!-- suelo -->
           <line class="plan-line delay2" x1="30" y1="280" x2="290" y2="280" />
         </svg>
-        <span class="tag">RFM — CASA TIPO</span>
+        <span class="tag" data-i18n="hero.tag">RFM — CASA TIPO</span>
       </div>
     </div>
   </section>
@@ -72,9 +93,9 @@
   <section id="casas">
     <div class="wrap">
       <div class="section-head reveal">
-        <p class="eyebrow">01 — CASAS DISPONIBLES</p>
-        <h2>Encontrá tu casa</h2>
-        <p>Alquiler por día en Las Termas. El Pinar y Paysandú están ocupados por el momento — sumate a la lista de espera.</p>
+        <p class="eyebrow" data-i18n="casas.eyebrow">01 — CASAS DISPONIBLES</p>
+        <h2 data-i18n="casas.h2">Encontrá tu casa</h2>
+        <p data-i18n="casas.p">Alquiler por día en Las Termas. El Pinar y Paysandú están ocupados por el momento — sumate a la lista de espera.</p>
       </div>
 
       <div class="map-grid reveal">
@@ -92,44 +113,44 @@
         </div>
       </div>
       <div class="map-legend reveal">
-        <span><i style="background:#b1573a"></i>Por día</span>
-        <span><i style="background:#c98a3f"></i>En construcción</span>
-        <span><i style="background:#9a9184"></i>Ocupada</span>
+        <span><i style="background:#b1573a"></i><span data-i18n="legend.dia">Por día</span></span>
+        <span><i style="background:#c98a3f"></i><span data-i18n="legend.construccion">En construcción</span></span>
+        <span><i style="background:#9a9184"></i><span data-i18n="legend.ocupada">Ocupada</span></span>
       </div>
 
       <div class="dev-group reveal">
         <div class="dev-group-head">
           <h3>Las Termas</h3>
-          <span class="dev-group-tag">Alquiler por día</span>
+          <span class="dev-group-tag" data-i18n="group.termas.tag">Alquiler por día</span>
         </div>
         <div class="dev-grid">
           <div class="dev-card">
-            <h3>Guaviyú — Unidad 1</h3>
+            <h3 data-i18n="unit.guaviyu1">Guaviyú — Unidad 1</h3>
             <p class="dev-location">Termas de Guaviyú</p>
-            <ul class="dev-specs"><li>Mitad de la casa, unidad independiente</li><li>Consultar capacidad y precio</li></ul>
-            <p>Escribinos con tus fechas y te confirmamos disponibilidad.</p>
-            <a class="btn-ghost" href="mailto:rf.estudioarquitectura@gmail.com?subject=Reserva%20Guaviy%C3%BA%20Unidad%201%20-%20Las%20Termas">Reservar →</a>
+            <ul class="dev-specs"><li data-i18n="dev.unit_half">Mitad de la casa, unidad independiente</li><li data-i18n="dev.consult_cap">Consultar capacidad y precio</li></ul>
+            <p data-i18n="dev.write_dates">Escribinos con tus fechas y te confirmamos disponibilidad.</p>
+            <a class="btn-ghost" href="mailto:rf.estudioarquitectura@gmail.com?subject=Reserva%20Guaviy%C3%BA%20Unidad%201%20-%20Las%20Termas" data-i18n="dev.reservar">Reservar →</a>
           </div>
           <div class="dev-card">
-            <h3>Guaviyú — Unidad 2</h3>
+            <h3 data-i18n="unit.guaviyu2">Guaviyú — Unidad 2</h3>
             <p class="dev-location">Termas de Guaviyú</p>
-            <ul class="dev-specs"><li>Mitad de la casa, unidad independiente</li><li>Consultar capacidad y precio</li></ul>
-            <p>Escribinos con tus fechas y te confirmamos disponibilidad.</p>
-            <a class="btn-ghost" href="mailto:rf.estudioarquitectura@gmail.com?subject=Reserva%20Guaviy%C3%BA%20Unidad%202%20-%20Las%20Termas">Reservar →</a>
+            <ul class="dev-specs"><li data-i18n="dev.unit_half">Mitad de la casa, unidad independiente</li><li data-i18n="dev.consult_cap">Consultar capacidad y precio</li></ul>
+            <p data-i18n="dev.write_dates">Escribinos con tus fechas y te confirmamos disponibilidad.</p>
+            <a class="btn-ghost" href="mailto:rf.estudioarquitectura@gmail.com?subject=Reserva%20Guaviy%C3%BA%20Unidad%202%20-%20Las%20Termas" data-i18n="dev.reservar">Reservar →</a>
           </div>
           <div class="dev-card">
-            <h3>Anacahuita — Unidad 1</h3>
+            <h3 data-i18n="unit.anaca1">Anacahuita — Unidad 1</h3>
             <p class="dev-location">Termas de Guaviyú</p>
-            <ul class="dev-specs"><li>Mitad de la casa, unidad independiente</li><li>Consultar capacidad y precio</li></ul>
-            <p>Escribinos con tus fechas y te confirmamos disponibilidad.</p>
-            <a class="btn-ghost" href="mailto:rf.estudioarquitectura@gmail.com?subject=Reserva%20Anacahuita%20Unidad%201%20-%20Las%20Termas">Reservar →</a>
+            <ul class="dev-specs"><li data-i18n="dev.unit_half">Mitad de la casa, unidad independiente</li><li data-i18n="dev.consult_cap">Consultar capacidad y precio</li></ul>
+            <p data-i18n="dev.write_dates">Escribinos con tus fechas y te confirmamos disponibilidad.</p>
+            <a class="btn-ghost" href="mailto:rf.estudioarquitectura@gmail.com?subject=Reserva%20Anacahuita%20Unidad%201%20-%20Las%20Termas" data-i18n="dev.reservar">Reservar →</a>
           </div>
           <div class="dev-card">
-            <h3>Anacahuita — Unidad 2</h3>
+            <h3 data-i18n="unit.anaca2">Anacahuita — Unidad 2</h3>
             <p class="dev-location">Termas de Guaviyú</p>
-            <ul class="dev-specs"><li>Mitad de la casa, unidad independiente</li><li>Consultar capacidad y precio</li></ul>
-            <p>Escribinos con tus fechas y te confirmamos disponibilidad.</p>
-            <a class="btn-ghost" href="mailto:rf.estudioarquitectura@gmail.com?subject=Reserva%20Anacahuita%20Unidad%202%20-%20Las%20Termas">Reservar →</a>
+            <ul class="dev-specs"><li data-i18n="dev.unit_half">Mitad de la casa, unidad independiente</li><li data-i18n="dev.consult_cap">Consultar capacidad y precio</li></ul>
+            <p data-i18n="dev.write_dates">Escribinos con tus fechas y te confirmamos disponibilidad.</p>
+            <a class="btn-ghost" href="mailto:rf.estudioarquitectura@gmail.com?subject=Reserva%20Anacahuita%20Unidad%202%20-%20Las%20Termas" data-i18n="dev.reservar">Reservar →</a>
           </div>
         </div>
       </div>
@@ -137,20 +158,20 @@
       <div class="dev-summary reveal">
         <div>
           <h3>El Pinar, Canelones</h3>
-          <p>2 casas propias, actualmente ocupadas.</p>
+          <p data-i18n="summary.elpinar.p">2 casas propias, actualmente ocupadas.</p>
         </div>
-        <a class="btn-ghost" href="mailto:rf.estudioarquitectura@gmail.com?subject=Lista%20de%20espera%20-%20El%20Pinar%2C%20Canelones">Sumarme a la lista de espera →</a>
+        <a class="btn-ghost" href="mailto:rf.estudioarquitectura@gmail.com?subject=Lista%20de%20espera%20-%20El%20Pinar%2C%20Canelones" data-i18n="summary.waitlist_btn">Sumarme a la lista de espera →</a>
       </div>
 
       <div class="dev-summary reveal">
         <div>
           <h3>Paysandú</h3>
-          <p>9 casas más: 6 ocupadas hoy y 3 en construcción, con entrega próxima.</p>
+          <p data-i18n="summary.paysandu.p">9 casas más: 6 ocupadas hoy y 3 en construcción, con entrega próxima.</p>
         </div>
-        <a class="btn-ghost" href="mailto:rf.estudioarquitectura@gmail.com?subject=Lista%20de%20espera%20-%20Casas%20Paysand%C3%BA">Sumarme a la lista de espera →</a>
+        <a class="btn-ghost" href="mailto:rf.estudioarquitectura@gmail.com?subject=Lista%20de%20espera%20-%20Casas%20Paysand%C3%BA" data-i18n="summary.waitlist_btn">Sumarme a la lista de espera →</a>
       </div>
 
-      <p class="projects-note reveal">Estamos sumando fotos y el detalle de cada casa — mientras tanto, escribinos y te contamos disponibilidad y precios.</p>
+      <p class="projects-note reveal" data-i18n="casas.note">Estamos sumando fotos y el detalle de cada casa — mientras tanto, escribinos y te contamos disponibilidad y precios.</p>
     </div>
   </section>
 
@@ -158,25 +179,25 @@
   <section id="como-alquilar">
     <div class="wrap">
       <div class="section-head reveal">
-        <p class="eyebrow">02 — CÓMO ALQUILAR</p>
-        <h2>Tres pasos, sin vueltas</h2>
+        <p class="eyebrow" data-i18n="como.eyebrow">02 — CÓMO ALQUILAR</p>
+        <h2 data-i18n="como.h2">Tres pasos, sin vueltas</h2>
       </div>
 
       <div class="features-grid">
         <div class="service-card reveal">
           <svg class="icon" viewBox="0 0 40 40"><rect x="7" y="9" width="26" height="24"/><line x1="7" y1="16" x2="33" y2="16"/><line x1="13" y1="6" x2="13" y2="12"/><line x1="27" y1="6" x2="27" y2="12"/></svg>
-          <h3>01 — Contanos qué buscás</h3>
-          <p>Contrato en Paysandú o estadía en Las Termas — decinos fechas y cantidad de personas.</p>
+          <h3 data-i18n="como.step1.title">01 — Contanos qué buscás</h3>
+          <p data-i18n="como.step1.desc">Contrato en Paysandú o estadía en Las Termas — decinos fechas y cantidad de personas.</p>
         </div>
         <div class="service-card reveal">
           <svg class="icon" viewBox="0 0 40 40"><rect x="9" y="6" width="22" height="28"/><line x1="14" y1="14" x2="26" y2="14"/><line x1="14" y1="20" x2="26" y2="20"/><path d="M15 26 L18 29 L25 22"/></svg>
-          <h3>02 — Coordinamos los detalles</h3>
-          <p>Te confirmamos disponibilidad, precio y forma de pago.</p>
+          <h3 data-i18n="como.step2.title">02 — Coordinamos los detalles</h3>
+          <p data-i18n="como.step2.desc">Te confirmamos disponibilidad, precio y forma de pago.</p>
         </div>
         <div class="service-card reveal">
           <svg class="icon" viewBox="0 0 40 40"><circle cx="16" cy="16" r="8"/><line x1="22" y1="22" x2="34" y2="34"/><line x1="29" y1="29" x2="34" y2="24"/></svg>
-          <h3>03 — Entrás a tu casa</h3>
-          <p>Te recibimos con las llaves y todo lo necesario para instalarte o para tu estadía.</p>
+          <h3 data-i18n="como.step3.title">03 — Entrás a tu casa</h3>
+          <p data-i18n="como.step3.desc">Te recibimos con las llaves y todo lo necesario para instalarte o para tu estadía.</p>
         </div>
       </div>
     </div>
@@ -186,27 +207,30 @@
   <section id="contacto">
     <div class="wrap">
       <div class="section-head reveal">
-        <p class="eyebrow">03 — CONTACTO</p>
-        <h2>¿Tenés dudas sobre una casa puntual?</h2>
-        <p>Escribinos y te contamos todo: disponibilidad, precios y condiciones.</p>
+        <p class="eyebrow" data-i18n="contacto.eyebrow">03 — CONTACTO</p>
+        <h2 data-i18n="contacto.h2">¿Tenés dudas sobre una casa puntual?</h2>
+        <p data-i18n="contacto.p">Escribinos y te contamos todo: disponibilidad, precios y condiciones.</p>
       </div>
 
       <div class="contact-grid">
         <div class="reveal">
           <a class="contact-email" href="mailto:rf.estudioarquitectura@gmail.com?subject=Consulta%20de%20alquiler%20RFM">rf.estudioarquitectura@gmail.com</a>
-          <p>Contanos qué casa te interesa y para cuándo.</p>
-          <p>Atendido directamente por Matías Faust y Ronaldo Faust.</p>
+          <p data-i18n="contacto.p2">Contanos qué casa te interesa y para cuándo.</p>
+          <p data-i18n="contacto.p3">Atendido directamente por Matías Faust y Ronaldo Faust.</p>
         </div>
 
         <div class="social-list reveal">
           <a href="https://www.instagram.com/rf.estudioarq/" target="_blank" rel="noopener">
             <span>Instagram</span><span>@rf.estudioarq</span>
           </a>
+          <a href="https://wa.me/59898357587" target="_blank" rel="noopener">
+            <span>WhatsApp</span><span>098 357 587</span>
+          </a>
           <a href="https://facebook.com/ronaldofarq" target="_blank" rel="noopener">
             <span>Facebook</span><span>@ronaldofarq</span>
           </a>
           <a href="index.html">
-            <span>Arquitectura, interiorismo y paisajismo</span><span>RF. estudio</span>
+            <span data-i18n="social.rf">Arquitectura, interiorismo y paisajismo</span><span>RF. estudio</span>
           </a>
         </div>
       </div>
@@ -216,9 +240,13 @@
 </main>
 
 <footer class="wrap">
-  <p>© 2026 RFM — CASAS EN PAYSANDÚ Y LAS TERMAS</p>
-  <a class="back-top" href="#inicio">Volver arriba</a>
+  <p data-i18n="footer.text">© 2026 RFM — CASAS EN PAYSANDÚ Y LAS TERMAS</p>
+  <a class="back-top" href="#inicio" data-i18n="footer.back">Volver arriba</a>
 </footer>
+
+<a class="whatsapp-btn" href="https://wa.me/59898357587?text=Hola%2C%20quer%C3%ADa%20consultar%20sobre%20el%20alquiler%20de%20una%20casa." target="_blank" rel="noopener" aria-label="Escribinos por WhatsApp">
+  <svg viewBox="0 0 32 32" fill="#fff"><path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.485.755 4.795 2.049 6.712L4 29l7.47-1.967A11.94 11.94 0 0 0 16.001 27C22.628 27 28 21.627 28 15S22.628 3 16.001 3zm0 21.818a9.77 9.77 0 0 1-4.98-1.363l-.357-.213-3.55.936.946-3.462-.232-.355A9.78 9.78 0 0 1 6.182 15c0-5.413 4.406-9.818 9.819-9.818S25.818 9.587 25.818 15 21.413 24.818 16.001 24.818zm5.383-7.347c-.294-.147-1.74-.858-2.01-.956-.27-.098-.467-.147-.664.147-.196.294-.762.955-.934 1.152-.172.196-.343.221-.637.074-.294-.147-1.243-.458-2.368-1.462-.875-.78-1.466-1.744-1.638-2.038-.172-.294-.018-.453.129-.6.132-.132.294-.343.441-.515.147-.172.196-.294.294-.49.098-.196.049-.368-.024-.515-.074-.147-.664-1.6-.91-2.192-.24-.577-.484-.5-.664-.51l-.566-.01c-.196 0-.515.074-.784.368-.27.294-1.03 1.006-1.03 2.454 0 1.448 1.054 2.847 1.2 3.043.147.196 2.075 3.168 5.028 4.44.703.303 1.251.484 1.679.62.705.224 1.347.192 1.854.117.566-.084 1.74-.711 1.985-1.398.245-.686.245-1.274.172-1.398-.074-.123-.27-.196-.564-.343z"/></svg>
+</a>
 
 <button id="chat-toggle" class="chat-toggle" type="button" aria-label="Abrir chat de preguntas frecuentes">
   <svg viewBox="0 0 24 24"><path d="M4 5h16v11H8l-4 3z"/></svg>
@@ -227,32 +255,140 @@
   <div class="chat-header">
     <div class="chat-header-id">
       <div class="chat-avatar">RF</div>
-      <strong>¿En qué te ayudamos?</strong>
+      <strong data-i18n="chat.title">¿En qué te ayudamos?</strong>
     </div>
     <button id="chat-close" class="chat-close" type="button" aria-label="Cerrar chat">✕</button>
   </div>
   <div id="chat-body" class="chat-body">
     <div class="chat-row bot">
       <div class="chat-avatar-sm">RF</div>
-      <div class="chat-bubble bot">Elegí una pregunta de abajo y te respondo al toque.</div>
+      <div class="chat-bubble bot" data-i18n="chat.greeting">Elegí una pregunta de abajo y te respondo al toque.</div>
     </div>
   </div>
   <div id="chat-questions" class="chat-questions"></div>
   <div class="chat-footer">
-    <a href="mailto:rf.estudioarquitectura@gmail.com">¿Otra consulta? Escribinos por mail →</a>
+    <a href="mailto:rf.estudioarquitectura@gmail.com" data-i18n="chat.footer">¿Otra consulta? Escribinos por mail →</a>
   </div>
 </div>
 
 <script>
-  window.CHAT_FAQ = [
-    { q: '¿Qué casas tienen disponibles ahora?', a: 'Las 4 unidades de Las Termas (Guaviyú y Anacahuita) están disponibles por día. El Pinar y Paysandú están ocupados por ahora.' },
-    { q: '¿Cómo reservo una casa en Las Termas?', a: 'Escribinos por mail con tus fechas y cantidad de personas, y te confirmamos disponibilidad y precio.' },
-    { q: '¿Dónde están ubicadas las casas?', a: 'En El Pinar (Canelones), Paysandú y Termas de Guaviyú — mirá los mapas más arriba en esta página.' },
-    { q: '¿Puedo anotarme para una casa ocupada o en construcción?', a: 'Sí, sumate a la lista de espera desde la tarjeta correspondiente y te avisamos apenas se libere o esté lista.' },
-    { q: '¿Cuál es el contacto?', a: 'rf.estudioarquitectura@gmail.com — atendido directamente por Matías Faust y Ronaldo Faust.' }
-  ];
+  window.I18N = {
+    es: {
+      'nav.casas': 'Casas', 'nav.como': 'Cómo alquilar', 'nav.contacto': 'Contacto',
+      'hero.eyebrow': 'RFM · CASAS PROPIAS EN ALQUILER',
+      'hero.h1': 'Casas propias, listas para <em>vivir o descansar</em>',
+      'hero.p': 'RFM administra casas propias en El Pinar (Canelones), Paysandú y Las Termas: alquiler con contrato para instalarte, y alquiler por día para tu próxima escapada.',
+      'hero.cta1': 'Consultar disponibilidad →', 'hero.cta2': 'Ver casas', 'hero.tag': 'RFM — CASA TIPO',
+      'casas.eyebrow': '01 — CASAS DISPONIBLES', 'casas.h2': 'Encontrá tu casa',
+      'casas.p': 'Alquiler por día en Las Termas. El Pinar y Paysandú están ocupados por el momento — sumate a la lista de espera.',
+      'legend.dia': 'Por día', 'legend.construccion': 'En construcción', 'legend.ocupada': 'Ocupada',
+      'group.termas.tag': 'Alquiler por día',
+      'unit.guaviyu1': 'Guaviyú — Unidad 1', 'unit.guaviyu2': 'Guaviyú — Unidad 2',
+      'unit.anaca1': 'Anacahuita — Unidad 1', 'unit.anaca2': 'Anacahuita — Unidad 2',
+      'dev.unit_half': 'Mitad de la casa, unidad independiente', 'dev.consult_cap': 'Consultar capacidad y precio',
+      'dev.write_dates': 'Escribinos con tus fechas y te confirmamos disponibilidad.', 'dev.reservar': 'Reservar →',
+      'summary.elpinar.p': '2 casas propias, actualmente ocupadas.',
+      'summary.paysandu.p': '9 casas más: 6 ocupadas hoy y 3 en construcción, con entrega próxima.',
+      'summary.waitlist_btn': 'Sumarme a la lista de espera →',
+      'casas.note': 'Estamos sumando fotos y el detalle de cada casa — mientras tanto, escribinos y te contamos disponibilidad y precios.',
+      'como.eyebrow': '02 — CÓMO ALQUILAR', 'como.h2': 'Tres pasos, sin vueltas',
+      'como.step1.title': '01 — Contanos qué buscás', 'como.step1.desc': 'Contrato en Paysandú o estadía en Las Termas — decinos fechas y cantidad de personas.',
+      'como.step2.title': '02 — Coordinamos los detalles', 'como.step2.desc': 'Te confirmamos disponibilidad, precio y forma de pago.',
+      'como.step3.title': '03 — Entrás a tu casa', 'como.step3.desc': 'Te recibimos con las llaves y todo lo necesario para instalarte o para tu estadía.',
+      'contacto.eyebrow': '03 — CONTACTO', 'contacto.h2': '¿Tenés dudas sobre una casa puntual?',
+      'contacto.p': 'Escribinos y te contamos todo: disponibilidad, precios y condiciones.',
+      'contacto.p2': 'Contanos qué casa te interesa y para cuándo.', 'contacto.p3': 'Atendido directamente por Matías Faust y Ronaldo Faust.',
+      'social.rf': 'Arquitectura, interiorismo y paisajismo',
+      'footer.text': '© 2026 RFM — CASAS EN PAYSANDÚ Y LAS TERMAS', 'footer.back': 'Volver arriba',
+      'chat.title': '¿En qué te ayudamos?', 'chat.greeting': 'Elegí una pregunta de abajo y te respondo al toque.', 'chat.footer': '¿Otra consulta? Escribinos por mail →'
+    },
+    en: {
+      'nav.casas': 'Houses', 'nav.como': 'How to rent', 'nav.contacto': 'Contact',
+      'hero.eyebrow': 'RFM · OUR OWN HOUSES FOR RENT',
+      'hero.h1': 'Our own houses, ready to <em>live in or unwind</em>',
+      'hero.p': "RFM manages its own houses in El Pinar (Canelones), Paysandú and Las Termas: long-term contract rentals to settle in, and daily rentals for your next getaway.",
+      'hero.cta1': 'Check availability →', 'hero.cta2': 'See houses', 'hero.tag': 'RFM — SAMPLE HOUSE',
+      'casas.eyebrow': '01 — AVAILABLE HOUSES', 'casas.h2': 'Find your house',
+      'casas.p': 'Daily rentals in Las Termas. El Pinar and Paysandú are occupied for now — join the waiting list.',
+      'legend.dia': 'Daily', 'legend.construccion': 'Under construction', 'legend.ocupada': 'Occupied',
+      'group.termas.tag': 'Daily rental',
+      'unit.guaviyu1': 'Guaviyú — Unit 1', 'unit.guaviyu2': 'Guaviyú — Unit 2',
+      'unit.anaca1': 'Anacahuita — Unit 1', 'unit.anaca2': 'Anacahuita — Unit 2',
+      'dev.unit_half': 'Half of the house, independent unit', 'dev.consult_cap': 'Ask about capacity and price',
+      'dev.write_dates': "Send us your dates and we'll confirm availability.", 'dev.reservar': 'Book →',
+      'summary.elpinar.p': '2 of our own houses, currently occupied.',
+      'summary.paysandu.p': '9 more houses: 6 occupied today and 3 under construction, coming soon.',
+      'summary.waitlist_btn': 'Join the waiting list →',
+      'casas.note': "We're adding photos and details for each house — in the meantime, message us and we'll tell you about availability and prices.",
+      'como.eyebrow': '02 — HOW TO RENT', 'como.h2': 'Three steps, no hassle',
+      'como.step1.title': "01 — Tell us what you're after", 'como.step1.desc': "A contract in Paysandú or a stay in Las Termas — tell us the dates and how many people.",
+      'como.step2.title': '02 — We work out the details', 'como.step2.desc': "We'll confirm availability, price and payment method.",
+      'como.step3.title': '03 — You move in', 'como.step3.desc': "We'll greet you with the keys and everything you need to settle in or enjoy your stay.",
+      'contacto.eyebrow': '03 — CONTACT', 'contacto.h2': 'Questions about a specific house?',
+      'contacto.p': "Message us and we'll tell you everything: availability, prices and terms.",
+      'contacto.p2': "Tell us which house you're interested in and for when.", 'contacto.p3': "You'll be dealing directly with Matías Faust and Ronaldo Faust.",
+      'social.rf': 'Architecture, interior design and landscaping',
+      'footer.text': '© 2026 RFM — HOUSES IN PAYSANDÚ AND LAS TERMAS', 'footer.back': 'Back to top',
+      'chat.title': 'How can we help?', 'chat.greeting': "Pick a question below and I'll answer right away.", 'chat.footer': 'Another question? Email us →'
+    },
+    pt: {
+      'nav.casas': 'Casas', 'nav.como': 'Como alugar', 'nav.contacto': 'Contato',
+      'hero.eyebrow': 'RFM · CASAS PRÓPRIAS PARA ALUGAR',
+      'hero.h1': 'Casas próprias, prontas para <em>viver ou descansar</em>',
+      'hero.p': 'A RFM administra casas próprias em El Pinar (Canelones), Paysandú e Las Termas: aluguel com contrato para se instalar, e aluguel por dia para sua próxima escapada.',
+      'hero.cta1': 'Consultar disponibilidade →', 'hero.cta2': 'Ver casas', 'hero.tag': 'RFM — CASA MODELO',
+      'casas.eyebrow': '01 — CASAS DISPONÍVEIS', 'casas.h2': 'Encontre sua casa',
+      'casas.p': 'Aluguel por dia em Las Termas. El Pinar e Paysandú estão ocupados no momento — entre na lista de espera.',
+      'legend.dia': 'Por dia', 'legend.construccion': 'Em construção', 'legend.ocupada': 'Ocupada',
+      'group.termas.tag': 'Aluguel por dia',
+      'unit.guaviyu1': 'Guaviyú — Unidade 1', 'unit.guaviyu2': 'Guaviyú — Unidade 2',
+      'unit.anaca1': 'Anacahuita — Unidade 1', 'unit.anaca2': 'Anacahuita — Unidade 2',
+      'dev.unit_half': 'Metade da casa, unidade independente', 'dev.consult_cap': 'Consulte capacidade e preço',
+      'dev.write_dates': 'Escreva com suas datas e confirmamos a disponibilidade.', 'dev.reservar': 'Reservar →',
+      'summary.elpinar.p': '2 casas próprias, atualmente ocupadas.',
+      'summary.paysandu.p': 'Mais 9 casas: 6 ocupadas hoje e 3 em construção, com entrega em breve.',
+      'summary.waitlist_btn': 'Entrar na lista de espera →',
+      'casas.note': 'Estamos adicionando fotos e detalhes de cada casa — enquanto isso, escreva pra gente e contamos disponibilidade e preços.',
+      'como.eyebrow': '02 — COMO ALUGAR', 'como.h2': 'Três passos, sem complicação',
+      'como.step1.title': '01 — Conte o que você procura', 'como.step1.desc': 'Contrato em Paysandú ou estadia em Las Termas — diga as datas e quantas pessoas.',
+      'como.step2.title': '02 — Combinamos os detalhes', 'como.step2.desc': 'Confirmamos disponibilidade, preço e forma de pagamento.',
+      'como.step3.title': '03 — Você entra na sua casa', 'como.step3.desc': 'Recebemos você com as chaves e tudo o que precisa para se instalar ou aproveitar a estadia.',
+      'contacto.eyebrow': '03 — CONTATO', 'contacto.h2': 'Tem dúvidas sobre uma casa específica?',
+      'contacto.p': 'Escreva pra gente e contamos tudo: disponibilidade, preços e condições.',
+      'contacto.p2': 'Conte qual casa te interessa e para quando.', 'contacto.p3': 'Atendido diretamente por Matías Faust e Ronaldo Faust.',
+      'social.rf': 'Arquitetura, design de interiores e paisagismo',
+      'footer.text': '© 2026 RFM — CASAS EM PAYSANDÚ E LAS TERMAS', 'footer.back': 'Voltar ao topo',
+      'chat.title': 'Como podemos ajudar?', 'chat.greeting': 'Escolha uma pergunta abaixo e respondo na hora.', 'chat.footer': 'Outra dúvida? Escreva pra gente →'
+    }
+  };
+
+  window.CHAT_FAQ_I18N = {
+    es: [
+      { q: '¿Qué casas tienen disponibles ahora?', a: 'Las 4 unidades de Las Termas (Guaviyú y Anacahuita) están disponibles por día. El Pinar y Paysandú están ocupados por ahora.' },
+      { q: '¿Cómo reservo una casa en Las Termas?', a: 'Escribinos por mail con tus fechas y cantidad de personas, y te confirmamos disponibilidad y precio.' },
+      { q: '¿Dónde están ubicadas las casas?', a: 'En El Pinar (Canelones), Paysandú y Termas de Guaviyú — mirá los mapas más arriba en esta página.' },
+      { q: '¿Puedo anotarme para una casa ocupada o en construcción?', a: 'Sí, sumate a la lista de espera desde la tarjeta correspondiente y te avisamos apenas se libere o esté lista.' },
+      { q: '¿Cuál es el contacto?', a: 'rf.estudioarquitectura@gmail.com — atendido directamente por Matías Faust y Ronaldo Faust.' }
+    ],
+    en: [
+      { q: 'What houses are available right now?', a: 'The 4 units in Las Termas (Guaviyú and Anacahuita) are available daily. El Pinar and Paysandú are occupied for now.' },
+      { q: 'How do I book a house in Las Termas?', a: "Message us with your dates and number of people, and we'll confirm availability and price." },
+      { q: 'Where are the houses located?', a: 'In El Pinar (Canelones), Paysandú and Termas de Guaviyú — check the maps further up this page.' },
+      { q: 'Can I sign up for an occupied or under-construction house?', a: "Yes, join the waiting list from the matching card and we'll let you know as soon as it's free or ready." },
+      { q: "What's the contact?", a: "rf.estudioarquitectura@gmail.com — you'll be dealing directly with Matías Faust and Ronaldo Faust." }
+    ],
+    pt: [
+      { q: 'Quais casas estão disponíveis agora?', a: 'As 4 unidades de Las Termas (Guaviyú e Anacahuita) estão disponíveis por dia. El Pinar e Paysandú estão ocupados por enquanto.' },
+      { q: 'Como reservo uma casa em Las Termas?', a: 'Escreva pra gente com suas datas e quantidade de pessoas, e confirmamos disponibilidade e preço.' },
+      { q: 'Onde ficam as casas?', a: 'Em El Pinar (Canelones), Paysandú e Termas de Guaviyú — veja os mapas mais acima nesta página.' },
+      { q: 'Posso me inscrever para uma casa ocupada ou em construção?', a: 'Sim, entre na lista de espera pelo card correspondente e avisamos assim que estiver livre ou pronta.' },
+      { q: 'Qual é o contato?', a: 'rf.estudioarquitectura@gmail.com — atendido diretamente por Matías Faust e Ronaldo Faust.' }
+    ]
+  };
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/i18n.js"></script>
 <script src="js/script.js"></script>
 <script src="js/map.js"></script>
 <script src="js/chat.js"></script>
