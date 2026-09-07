@@ -101,11 +101,7 @@
     if (!points.length) return;
 
     var map = L.map(el, {
-      scrollWheelZoom: false,
-      dragging: false,
-      zoomControl: false,
-      doubleClickZoom: false,
-      touchZoom: false
+      scrollWheelZoom: false
     }).setView([points[0].lat, points[0].lng], 13);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -123,13 +119,13 @@
     });
 
     if (bounds.length > 1) {
-      map.fitBounds(bounds, { padding: [10, 10], maxZoom: 13 });
+      map.fitBounds(bounds, { padding: [16, 16], maxZoom: 15 });
     }
 
     function resync(){
       map.invalidateSize();
       if (bounds.length > 1) {
-        map.fitBounds(bounds, { padding: [10, 10], maxZoom: 13 });
+        map.fitBounds(bounds, { padding: [16, 16], maxZoom: 15 });
       }
     }
     setTimeout(resync, 0);

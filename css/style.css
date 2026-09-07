@@ -481,7 +481,6 @@ section{ padding-top:clamp(64px, 9vw, 108px); padding-bottom:clamp(64px, 9vw, 10
   height:190px;
   filter:grayscale(0.25) contrast(1.05) brightness(1.02);
 }
-.location-map .leaflet-control-zoom{ display:none; }
 .location-body{
   padding:22px 24px 26px;
   display:flex;
