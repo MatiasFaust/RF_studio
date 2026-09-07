@@ -462,6 +462,43 @@ section{ padding-top:clamp(64px, 9vw, 108px); padding-bottom:clamp(64px, 9vw, 10
 }
 .bridge-btn:hover{ background:var(--accent-soft); color:var(--ink); }
 
+/* ---------- clima ---------- */
+.weather-grid{
+  margin-top:44px;
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:1px;
+  background:var(--line);
+  border:1px solid var(--line);
+}
+.weather-card{
+  background:var(--surface);
+  padding:30px 26px;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:6px;
+}
+.weather-place{
+  font-family:var(--font-mono);
+  font-size:0.72rem;
+  letter-spacing:0.04em;
+  text-transform:uppercase;
+  color:var(--ink-soft);
+}
+.weather-icon{ width:34px; height:34px; margin-top:6px; color:var(--accent); }
+.weather-icon svg{ width:100%; height:100%; stroke:currentColor; stroke-width:1.4; fill:none; }
+.weather-temp{
+  font-family:var(--font-display);
+  font-size:2.4rem;
+  font-weight:500;
+  color:var(--ink);
+  line-height:1;
+  margin-top:4px;
+  font-variant-numeric:tabular-nums;
+}
+.weather-cond{ font-size:0.88rem; color:var(--ink-soft); }
+
 /* ---------- casas: mapa ---------- */
 .map-grid{
   margin-top:40px;
@@ -963,6 +1000,7 @@ footer p{
   .contact-grid{ grid-template-columns:1fr; }
   .dev-grid{ grid-template-columns:1fr; }
   .features-grid{ grid-template-columns:1fr; }
+  .weather-grid{ grid-template-columns:1fr; }
   .bridge-inner{ flex-direction:column; align-items:flex-start; }
   .map-grid{ grid-template-columns:1fr; }
   .map-frame{ height:280px; }

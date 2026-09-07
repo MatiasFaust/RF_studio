@@ -89,6 +89,38 @@
     </div>
   </section>
 
+  <!-- ---------- CLIMA ---------- -->
+  <section id="clima">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow" data-i18n="clima.eyebrow">CLIMA AHORA</p>
+        <h2 data-i18n="clima.h2">Cómo está el día en cada zona</h2>
+      </div>
+
+      <div class="weather-grid reveal">
+        <div class="weather-card" data-weather="paysandu" data-lat="-32.3214" data-lng="-58.0756">
+          <p class="weather-place">Paysandú</p>
+          <div class="weather-icon" aria-hidden="true"></div>
+          <p class="weather-temp">—</p>
+          <p class="weather-cond" data-i18n="clima.loading">Cargando…</p>
+        </div>
+        <div class="weather-card" data-weather="termas" data-lat="-31.8405" data-lng="-57.8868">
+          <p class="weather-place">Termas de Guaviyú</p>
+          <div class="weather-icon" aria-hidden="true"></div>
+          <p class="weather-temp">—</p>
+          <p class="weather-cond" data-i18n="clima.loading">Cargando…</p>
+        </div>
+        <div class="weather-card" data-weather="elpinar" data-lat="-34.7972" data-lng="-55.9097">
+          <p class="weather-place">El Pinar, Canelones</p>
+          <div class="weather-icon" aria-hidden="true"></div>
+          <p class="weather-temp">—</p>
+          <p class="weather-cond" data-i18n="clima.loading">Cargando…</p>
+        </div>
+      </div>
+      <p class="projects-note reveal" data-i18n="clima.source">Datos de Open-Meteo, actualizados en vivo.</p>
+    </div>
+  </section>
+
   <!-- ---------- CASAS ---------- -->
   <section id="casas">
     <div class="wrap">
@@ -275,6 +307,7 @@
   window.I18N = {
     es: {
       'nav.casas': 'Casas', 'nav.como': 'Cómo alquilar', 'nav.contacto': 'Contacto',
+      'clima.eyebrow': 'CLIMA AHORA', 'clima.h2': 'Cómo está el día en cada zona', 'clima.loading': 'Cargando…', 'clima.source': 'Datos de Open-Meteo, actualizados en vivo.',
       'hero.eyebrow': 'RFM · CASAS PROPIAS EN ALQUILER',
       'hero.h1': 'Casas propias, listas para <em>vivir o descansar</em>',
       'hero.p': 'RFM administra casas propias en El Pinar (Canelones), Paysandú y Las Termas: alquiler con contrato para instalarte, y alquiler por día para tu próxima escapada.',
@@ -304,6 +337,7 @@
     },
     en: {
       'nav.casas': 'Houses', 'nav.como': 'How to rent', 'nav.contacto': 'Contact',
+      'clima.eyebrow': 'WEATHER NOW', 'clima.h2': "Today's weather in each area", 'clima.loading': 'Loading…', 'clima.source': 'Data from Open-Meteo, updated live.',
       'hero.eyebrow': 'RFM · OUR OWN HOUSES FOR RENT',
       'hero.h1': 'Our own houses, ready to <em>live in or unwind</em>',
       'hero.p': "RFM manages its own houses in El Pinar (Canelones), Paysandú and Las Termas: long-term contract rentals to settle in, and daily rentals for your next getaway.",
@@ -333,6 +367,7 @@
     },
     pt: {
       'nav.casas': 'Casas', 'nav.como': 'Como alugar', 'nav.contacto': 'Contato',
+      'clima.eyebrow': 'CLIMA AGORA', 'clima.h2': 'Como está o dia em cada região', 'clima.loading': 'Carregando…', 'clima.source': 'Dados da Open-Meteo, atualizados em tempo real.',
       'hero.eyebrow': 'RFM · CASAS PRÓPRIAS PARA ALUGAR',
       'hero.h1': 'Casas próprias, prontas para <em>viver ou descansar</em>',
       'hero.p': 'A RFM administra casas próprias em El Pinar (Canelones), Paysandú e Las Termas: aluguel com contrato para se instalar, e aluguel por dia para sua próxima escapada.',
@@ -392,6 +427,7 @@
 <script src="js/script.js"></script>
 <script src="js/scroll-draw.js"></script>
 <script src="js/map.js"></script>
+<script src="js/weather.js"></script>
 <script src="js/chat.js"></script>
 
 </body>
