@@ -479,6 +479,7 @@ section{ padding-top:clamp(64px, 9vw, 108px); padding-bottom:clamp(64px, 9vw, 10
 .location-map{
   width:100%;
   aspect-ratio:4/3;
+  min-height:160px;
   filter:grayscale(0.25) contrast(1.05) brightness(1.02);
 }
 .location-map .leaflet-control-zoom{ display:none; }

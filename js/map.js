@@ -125,6 +125,15 @@
     if (bounds.length > 1) {
       map.fitBounds(bounds, { padding: [10, 10], maxZoom: 13 });
     }
+
+    function resync(){
+      map.invalidateSize();
+      if (bounds.length > 1) {
+        map.fitBounds(bounds, { padding: [10, 10], maxZoom: 13 });
+      }
+    }
+    setTimeout(resync, 0);
+    window.addEventListener('load', resync);
   }
 
   initRegionMap('map-paysandu', 'paysandu');
