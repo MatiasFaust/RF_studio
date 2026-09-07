@@ -100,7 +100,13 @@
     var points = locations.filter(function(loc){ return loc.region === region; });
     if (!points.length) return;
 
-    var map = L.map(el, { scrollWheelZoom: false }).setView([points[0].lat, points[0].lng], 13);
+    var map = L.map(el, {
+      scrollWheelZoom: false,
+      dragging: false,
+      zoomControl: false,
+      doubleClickZoom: false,
+      touchZoom: false
+    }).setView([points[0].lat, points[0].lng], 13);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
@@ -117,7 +123,7 @@
     });
 
     if (bounds.length > 1) {
-      map.fitBounds(bounds, { padding: [30, 30], maxZoom: 15 });
+      map.fitBounds(bounds, { padding: [10, 10], maxZoom: 13 });
     }
   }
 
