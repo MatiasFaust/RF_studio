@@ -336,17 +336,8 @@ header{
   stroke:var(--ink);
   stroke-width:1.1;
   fill:none;
-  stroke-dasharray:600;
-  stroke-dashoffset:600;
-  animation:draw 1.8s ease forwards;
 }
 .plan-line.soft{ stroke:var(--accent-soft); }
-.plan-line.delay{ animation-delay:0.35s; }
-.plan-line.delay2{ animation-delay:0.65s; }
-@keyframes draw{ to{ stroke-dashoffset:0; } }
-@media (prefers-reduced-motion: reduce){
-  .plan-line{ stroke-dashoffset:0; animation:none; }
-}
 
 /* ---------- sections ---------- */
 section{ padding-top:clamp(64px, 9vw, 108px); padding-bottom:clamp(64px, 9vw, 108px); border-top:1px solid var(--line); }
