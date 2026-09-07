@@ -89,35 +89,62 @@
     </div>
   </section>
 
-  <!-- ---------- CLIMA ---------- -->
-  <section id="clima">
+  <!-- ---------- ZONAS (mapa + clima) ---------- -->
+  <section id="zonas">
     <div class="wrap">
       <div class="section-head reveal">
-        <p class="eyebrow" data-i18n="clima.eyebrow">CLIMA AHORA</p>
-        <h2 data-i18n="clima.h2">Cómo está el día en cada zona</h2>
+        <p class="eyebrow" data-i18n="zonas.eyebrow">NUESTRAS ZONAS</p>
+        <h2 data-i18n="zonas.h2">Dónde estamos, y cómo está el día</h2>
       </div>
 
-      <div class="weather-grid reveal">
-        <div class="weather-card" data-weather="paysandu" data-lat="-32.3214" data-lng="-58.0756">
-          <p class="weather-place">Paysandú</p>
-          <div class="weather-icon" aria-hidden="true"></div>
-          <p class="weather-temp">—</p>
-          <p class="weather-cond" data-i18n="clima.loading">Cargando…</p>
+      <div class="location-grid reveal">
+        <div class="location-card">
+          <div id="map-paysandu" class="location-map" role="img" aria-label="Mapa de las casas de RFM en Paysandú"></div>
+          <div class="location-body">
+            <h3 class="location-name">Paysandú</h3>
+            <div class="location-weather" data-weather="paysandu" data-lat="-32.3214" data-lng="-58.0756">
+              <div class="weather-icon" aria-hidden="true"></div>
+              <div class="location-weather-text">
+                <span class="location-weather-temp">—</span>
+                <span class="location-weather-cond" data-i18n="clima.loading">Cargando…</span>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="weather-card" data-weather="termas" data-lat="-31.8405" data-lng="-57.8868">
-          <p class="weather-place">Termas de Guaviyú</p>
-          <div class="weather-icon" aria-hidden="true"></div>
-          <p class="weather-temp">—</p>
-          <p class="weather-cond" data-i18n="clima.loading">Cargando…</p>
+        <div class="location-card">
+          <div id="map-termas" class="location-map" role="img" aria-label="Mapa de las casas de RFM en Termas de Guaviyú"></div>
+          <div class="location-body">
+            <h3 class="location-name">Termas de Guaviyú</h3>
+            <div class="location-weather" data-weather="termas" data-lat="-31.8405" data-lng="-57.8868">
+              <div class="weather-icon" aria-hidden="true"></div>
+              <div class="location-weather-text">
+                <span class="location-weather-temp">—</span>
+                <span class="location-weather-cond" data-i18n="clima.loading">Cargando…</span>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="weather-card" data-weather="elpinar" data-lat="-34.7972" data-lng="-55.9097">
-          <p class="weather-place">El Pinar, Canelones</p>
-          <div class="weather-icon" aria-hidden="true"></div>
-          <p class="weather-temp">—</p>
-          <p class="weather-cond" data-i18n="clima.loading">Cargando…</p>
+        <div class="location-card">
+          <div id="map-elpinar" class="location-map" role="img" aria-label="Mapa de las casas de RFM en El Pinar, Canelones"></div>
+          <div class="location-body">
+            <h3 class="location-name">El Pinar, Canelones</h3>
+            <div class="location-weather" data-weather="elpinar" data-lat="-34.7972" data-lng="-55.9097">
+              <div class="weather-icon" aria-hidden="true"></div>
+              <div class="location-weather-text">
+                <span class="location-weather-temp">—</span>
+                <span class="location-weather-cond" data-i18n="clima.loading">Cargando…</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <p class="projects-note reveal" data-i18n="clima.source">Datos de Open-Meteo, actualizados en vivo.</p>
+
+      <div class="map-legend reveal">
+        <span><i style="background:#b1573a"></i><span data-i18n="legend.dia">Por día</span></span>
+        <span><i style="background:#c98a3f"></i><span data-i18n="legend.construccion">En construcción</span></span>
+        <span><i style="background:#9a9184"></i><span data-i18n="legend.ocupada">Ocupada</span></span>
+      </div>
+      <p class="projects-note reveal" data-i18n="clima.source">Clima de Open-Meteo, actualizado en vivo.</p>
     </div>
   </section>
 
@@ -128,26 +155,6 @@
         <p class="eyebrow" data-i18n="casas.eyebrow">01 — CASAS DISPONIBLES</p>
         <h2 data-i18n="casas.h2">Encontrá tu casa</h2>
         <p data-i18n="casas.p">Alquiler por día en Las Termas. El Pinar y Paysandú están ocupados por el momento — sumate a la lista de espera.</p>
-      </div>
-
-      <div class="map-grid reveal">
-        <div class="map-cell">
-          <h3 class="map-cell-title">Paysandú</h3>
-          <div id="map-paysandu" class="map-frame" role="img" aria-label="Mapa de las casas de RFM en Paysandú"></div>
-        </div>
-        <div class="map-cell">
-          <h3 class="map-cell-title">Termas de Guaviyú</h3>
-          <div id="map-termas" class="map-frame" role="img" aria-label="Mapa de las casas de RFM en Termas de Guaviyú"></div>
-        </div>
-        <div class="map-cell">
-          <h3 class="map-cell-title">El Pinar, Canelones</h3>
-          <div id="map-elpinar" class="map-frame" role="img" aria-label="Mapa de las casas de RFM en El Pinar, Canelones"></div>
-        </div>
-      </div>
-      <div class="map-legend reveal">
-        <span><i style="background:#b1573a"></i><span data-i18n="legend.dia">Por día</span></span>
-        <span><i style="background:#c98a3f"></i><span data-i18n="legend.construccion">En construcción</span></span>
-        <span><i style="background:#9a9184"></i><span data-i18n="legend.ocupada">Ocupada</span></span>
       </div>
 
       <div class="dev-group reveal">
@@ -307,7 +314,7 @@
   window.I18N = {
     es: {
       'nav.casas': 'Casas', 'nav.como': 'Cómo alquilar', 'nav.contacto': 'Contacto',
-      'clima.eyebrow': 'CLIMA AHORA', 'clima.h2': 'Cómo está el día en cada zona', 'clima.loading': 'Cargando…', 'clima.source': 'Datos de Open-Meteo, actualizados en vivo.',
+      'zonas.eyebrow': 'NUESTRAS ZONAS', 'zonas.h2': 'Dónde estamos, y cómo está el día', 'clima.loading': 'Cargando…', 'clima.source': 'Clima de Open-Meteo, actualizado en vivo.',
       'hero.eyebrow': 'RFM · CASAS PROPIAS EN ALQUILER',
       'hero.h1': 'Casas propias, listas para <em>vivir o descansar</em>',
       'hero.p': 'RFM administra casas propias en El Pinar (Canelones), Paysandú y Las Termas: alquiler con contrato para instalarte, y alquiler por día para tu próxima escapada.',
@@ -337,7 +344,7 @@
     },
     en: {
       'nav.casas': 'Houses', 'nav.como': 'How to rent', 'nav.contacto': 'Contact',
-      'clima.eyebrow': 'WEATHER NOW', 'clima.h2': "Today's weather in each area", 'clima.loading': 'Loading…', 'clima.source': 'Data from Open-Meteo, updated live.',
+      'zonas.eyebrow': 'OUR AREAS', 'zonas.h2': "Where we are, and today's weather", 'clima.loading': 'Loading…', 'clima.source': 'Weather from Open-Meteo, updated live.',
       'hero.eyebrow': 'RFM · OUR OWN HOUSES FOR RENT',
       'hero.h1': 'Our own houses, ready to <em>live in or unwind</em>',
       'hero.p': "RFM manages its own houses in El Pinar (Canelones), Paysandú and Las Termas: long-term contract rentals to settle in, and daily rentals for your next getaway.",
@@ -367,7 +374,7 @@
     },
     pt: {
       'nav.casas': 'Casas', 'nav.como': 'Como alugar', 'nav.contacto': 'Contato',
-      'clima.eyebrow': 'CLIMA AGORA', 'clima.h2': 'Como está o dia em cada região', 'clima.loading': 'Carregando…', 'clima.source': 'Dados da Open-Meteo, atualizados em tempo real.',
+      'zonas.eyebrow': 'NOSSAS REGIÕES', 'zonas.h2': 'Onde estamos, e como está o dia', 'clima.loading': 'Carregando…', 'clima.source': 'Clima da Open-Meteo, atualizado em tempo real.',
       'hero.eyebrow': 'RFM · CASAS PRÓPRIAS PARA ALUGAR',
       'hero.h1': 'Casas próprias, prontas para <em>viver ou descansar</em>',
       'hero.p': 'A RFM administra casas próprias em El Pinar (Canelones), Paysandú e Las Termas: aluguel com contrato para se instalar, e aluguel por dia para sua próxima escapada.',

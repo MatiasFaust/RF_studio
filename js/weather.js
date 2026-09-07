@@ -1,5 +1,5 @@
 (function(){
-  var cards = document.querySelectorAll('.weather-card[data-weather]');
+  var cards = document.querySelectorAll('.location-weather[data-weather]');
   if (!cards.length) return;
 
   var ICONS = {
@@ -43,8 +43,8 @@
     var lang = currentLang();
     var cond = COND[code] || COND[3];
     var icon = card.querySelector('.weather-icon');
-    var tempEl = card.querySelector('.weather-temp');
-    var condEl = card.querySelector('.weather-cond');
+    var tempEl = card.querySelector('.location-weather-temp');
+    var condEl = card.querySelector('.location-weather-cond');
     icon.innerHTML = '<svg viewBox="0 0 24 24">' + ICONS[cond.icon] + '</svg>';
     tempEl.textContent = Math.round(temp) + '°';
     condEl.textContent = cond[lang] || cond.es;
@@ -54,7 +54,7 @@
   }
 
   function renderError(card){
-    var condEl = card.querySelector('.weather-cond');
+    var condEl = card.querySelector('.location-weather-cond');
     condEl.textContent = '—';
     condEl.removeAttribute('data-i18n');
   }
