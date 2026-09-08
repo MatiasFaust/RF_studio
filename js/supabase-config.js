@@ -13,5 +13,5 @@
 // 3. Copiá "Project URL" y pegalo abajo en SUPABASE_URL
 // 4. Copiá la clave "anon public" y pegala abajo en SUPABASE_ANON_KEY
 
-window.SUPABASE_URL = 'PEGA_ACA_TU_PROJECT_URL';
-window.SUPABASE_ANON_KEY = 'PEGA_ACA_TU_ANON_PUBLIC_KEY';
+window.SUPABASE_URL = 'https://ovtykkbeccflduikfeyl.supabase.co';
+window.SUPABASE_ANON_KEY = 'sb_publishable_WhFiVCIUwjg_znk7q65hlw_woCXLLgl';
