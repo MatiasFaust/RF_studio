@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<script>
+  (function(){
+    try{
+      var t = localStorage.getItem('rf-theme');
+      if (t) document.documentElement.setAttribute('data-theme', t);
+    }catch(e){}
+  })();
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow">
+<title>RFM — Panel de administración</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="admin-body">
+
+<div id="admin-login" class="admin-login">
+  <div class="admin-login-card">
+    <div class="admin-login-head">
+      <div class="chat-avatar">RF</div>
+      <div>
+        <h1>RFM</h1>
+        <p>Panel de administración</p>
+      </div>
+    </div>
+    <form id="login-form" class="admin-form">
+      <label>Email
+        <input type="email" id="login-email" required autocomplete="username">
+      </label>
+      <label>Contraseña
+        <input type="password" id="login-password" required autocomplete="current-password">
+      </label>
+      <button type="submit" class="btn-primary">Ingresar</button>
+      <p id="login-error" class="admin-error" hidden></p>
+    </form>
+  </div>
+</div>
+
+<div id="admin-panel" class="admin-panel" hidden>
+  <header class="admin-header">
+    <a href="rfm.html" class="logo">RFM<span>ADMIN</span></a>
+    <div class="admin-header-right">
+      <span id="admin-user"></span>
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Cambiar tema">
+        <svg class="icon-moon" viewBox="0 0 24 24"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.6" y1="4.6" x2="6.7" y2="6.7"/><line x1="17.3" y1="17.3" x2="19.4" y2="19.4"/><line x1="4.6" y1="19.4" x2="6.7" y2="17.3"/><line x1="17.3" y1="6.7" x2="19.4" y2="4.6"/></svg>
+      </button>
+      <button id="logout-btn" class="btn-ghost" type="button">Cerrar sesión</button>
+    </div>
+  </header>
+
+  <main class="admin-main">
+
+    <section class="admin-section">
+      <h2 id="form-title">Nueva reserva / bloqueo</h2>
+      <div class="admin-form-row">
+        <label>Casa
+          <select id="house-select"></select>
+        </label>
+        <label>Entrada
+          <input type="date" id="check-in">
+        </label>
+        <label>Salida
+          <input type="date" id="check-out">
+        </label>
+        <label>Estado
+          <select id="status-select">
+            <option value="reservado">Alquilado</option>
+            <option value="bloqueado">No disponible</option>
+          </select>
+        </label>
+        <label>Nota (opcional)
+          <input type="text" id="guest-note" placeholder="Nombre del huésped, referencia...">
+        </label>
+      </div>
+      <div style="display:flex; gap:14px; align-items:center; flex-wrap:wrap;">
+        <button id="save-booking" class="btn-primary" type="button">Guardar</button>
+        <button id="cancel-edit" class="btn-ghost" type="button" hidden>Cancelar edición</button>
+      </div>
+      <p id="form-message" class="admin-message" hidden></p>
+    </section>
+
+    <section class="admin-section">
+      <div class="admin-calendar-head">
+        <h2>Calendario — <span id="calendar-house-name"></span></h2>
+      </div>
+      <div id="admin-calendar" class="availability-calendar admin-calendar"></div>
+    </section>
+
+    <section class="admin-section">
+      <h2>Todas las reservas</h2>
+      <div class="admin-table-wrap">
+        <table class="admin-table" id="bookings-table">
+          <thead>
+            <tr><th>Casa</th><th>Entrada</th><th>Salida</th><th>Estado</th><th>Nota</th><th></th></tr>
+          </thead>
+          <tbody id="bookings-tbody"></tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<div id="confirm-modal" class="admin-modal" hidden>
+  <div class="admin-modal-card">
+    <p id="confirm-text">¿Eliminar esta reserva? Las fechas quedarán liberadas.</p>
+    <div class="admin-modal-actions">
+      <button id="confirm-cancel" class="btn-ghost" type="button">Cancelar</button>
+      <button id="confirm-ok" class="btn-primary" type="button">Eliminar</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast" class="admin-toast" hidden></div>
+
+<script src="js/theme.js"></script>
+<script src="js/supabase-config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="js/calendar-utils.js"></script>
+<script src="js/admin.js"></script>
+
+</body>
+</html>

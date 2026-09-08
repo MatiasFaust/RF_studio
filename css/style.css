@@ -8,6 +8,9 @@
   --line:      #dcd6c9;
   --line-strong: #c4bca9;
 
+  --avail-free:   #5c8a63;
+  --avail-booked: #b23b32;
+
   --font-display: "Fraunces", Georgia, "Times New Roman", serif;
   --font-body: "Archivo", "Segoe UI", system-ui, -apple-system, sans-serif;
   --font-mono: "JetBrains Mono", "Consolas", monospace;
@@ -24,6 +27,9 @@
   --accent-soft: #b97a5c;
   --line:      #2a394d;
   --line-strong: #3d5069;
+
+  --avail-free:   #7fb389;
+  --avail-booked: #d16158;
 }
 
 *{ margin:0; padding:0; box-sizing:border-box; }
@@ -569,6 +575,233 @@ section{ padding-top:clamp(64px, 9vw, 108px); padding-bottom:clamp(64px, 9vw, 10
   letter-spacing:0.04em;
   color:var(--ink-soft);
   text-align:center;
+}
+
+/* ---------- calendario de disponibilidad (público) ---------- */
+.availability-calendar{
+  margin-top:16px;
+  padding-top:16px;
+  border-top:1px solid var(--line);
+}
+.avail-unconfigured{ font-size:0.78rem; color:var(--ink-soft); font-style:italic; }
+.avail-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:10px;
+}
+.avail-month{
+  font-family:var(--font-mono);
+  font-size:0.7rem;
+  text-transform:uppercase;
+  letter-spacing:0.03em;
+  color:var(--ink-soft);
+}
+.avail-nav{
+  background:none;
+  border:1px solid var(--line-strong);
+  width:22px;
+  height:22px;
+  border-radius:50%;
+  cursor:pointer;
+  color:var(--ink);
+  font-size:0.95rem;
+  line-height:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:border-color 0.2s ease, color 0.2s ease;
+}
+.avail-nav:hover{ border-color:var(--accent); color:var(--accent); }
+.avail-grid{
+  display:grid;
+  grid-template-columns:repeat(7, 1fr);
+  gap:2px;
+  text-align:center;
+}
+.avail-dow span{
+  font-family:var(--font-mono);
+  font-size:0.6rem;
+  color:var(--ink-soft);
+  text-transform:uppercase;
+  padding-bottom:4px;
+  display:block;
+}
+.avail-day{
+  font-size:0.72rem;
+  padding:5px 0;
+  border-radius:3px;
+  color:var(--ink);
+}
+.avail-day.empty{ visibility:hidden; }
+.avail-day.past{ color:var(--line-strong); }
+.avail-day.free{ background:color-mix(in srgb, var(--avail-free) 20%, transparent); }
+.avail-day.booked{ background:color-mix(in srgb, var(--avail-booked) 22%, transparent); color:var(--ink-soft); text-decoration:line-through; }
+.avail-day.blocked{ background:color-mix(in srgb, var(--ink-soft) 25%, transparent); color:var(--ink-soft); }
+.avail-legend{
+  display:flex;
+  gap:16px;
+  margin-top:10px;
+  font-size:0.68rem;
+  color:var(--ink-soft);
+}
+.avail-legend i.dot{
+  width:7px; height:7px;
+  border-radius:50%;
+  display:inline-block;
+  margin-right:5px;
+}
+.avail-legend i.dot.free{ background:var(--avail-free); }
+.avail-legend i.dot.booked{ background:var(--avail-booked); }
+
+/* ---------- panel de administración ---------- */
+.admin-body{ background:var(--bg); }
+.admin-login{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+}
+.admin-login-card{
+  width:100%;
+  max-width:380px;
+  background:var(--surface);
+  border:1px solid var(--line);
+  padding:36px 32px;
+}
+.admin-login-head{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-bottom:28px;
+}
+.admin-login-head h1{ font-size:1.3rem; }
+.admin-login-head p{ font-size:0.8rem; margin-top:2px; }
+.admin-form{ display:flex; flex-direction:column; gap:16px; }
+.admin-form label{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  font-family:var(--font-mono);
+  font-size:0.7rem;
+  text-transform:uppercase;
+  letter-spacing:0.03em;
+  color:var(--ink-soft);
+}
+.admin-form input, .admin-form select{
+  font-family:var(--font-body);
+  font-size:0.95rem;
+  color:var(--ink);
+  background:var(--bg);
+  border:1px solid var(--line-strong);
+  padding:10px 12px;
+}
+.admin-form input:focus, .admin-form select:focus{
+  outline:2px solid var(--accent);
+  outline-offset:1px;
+}
+.admin-error{ color:var(--avail-booked); font-size:0.82rem; }
+
+.admin-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:18px var(--edge);
+  border-bottom:1px solid var(--line);
+}
+.admin-header-right{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  font-size:0.85rem;
+  color:var(--ink-soft);
+}
+.admin-main{
+  max-width:1000px;
+  margin:0 auto;
+  padding:32px var(--edge) 80px;
+  display:flex;
+  flex-direction:column;
+  gap:44px;
+}
+.admin-section h2{ font-size:1.15rem; margin-bottom:18px; font-weight:500; }
+.admin-form-row{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(160px, 1fr));
+  gap:16px;
+  margin-bottom:18px;
+}
+.admin-message{
+  margin-top:14px;
+  font-size:0.85rem;
+  padding:10px 14px;
+  border:1px solid;
+}
+.admin-message.success{ color:var(--avail-free); border-color:var(--avail-free); background:color-mix(in srgb, var(--avail-free) 10%, transparent); }
+.admin-message.error{ color:var(--avail-booked); border-color:var(--avail-booked); background:color-mix(in srgb, var(--avail-booked) 10%, transparent); }
+
+.admin-calendar-head{ margin-bottom:12px; }
+.admin-calendar{ max-width:340px; }
+.admin-calendar .avail-day{ padding:9px 0; font-size:0.82rem; }
+
+.admin-table-wrap{ overflow-x:auto; border:1px solid var(--line); }
+.admin-table{ width:100%; border-collapse:collapse; font-size:0.85rem; }
+.admin-table th, .admin-table td{
+  padding:10px 14px;
+  text-align:left;
+  border-bottom:1px solid var(--line);
+  white-space:nowrap;
+}
+.admin-table th{
+  font-family:var(--font-mono);
+  font-size:0.65rem;
+  text-transform:uppercase;
+  letter-spacing:0.03em;
+  color:var(--ink-soft);
+  background:var(--surface);
+}
+.admin-table-actions{ display:flex; gap:14px; }
+.admin-danger{ color:var(--avail-booked) !important; }
+
+.admin-modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.5);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:200;
+  padding:24px;
+}
+.admin-modal-card{
+  background:var(--surface);
+  border:1px solid var(--line);
+  padding:28px;
+  max-width:360px;
+  width:100%;
+}
+.admin-modal-actions{ display:flex; justify-content:flex-end; gap:16px; margin-top:20px; }
+
+.admin-toast{
+  position:fixed;
+  bottom:24px;
+  left:50%;
+  transform:translateX(-50%);
+  background:var(--ink);
+  color:var(--bg);
+  padding:12px 20px;
+  font-size:0.85rem;
+  z-index:300;
+  max-width:calc(100vw - 32px);
+  text-align:center;
+}
+.admin-toast.error{ background:var(--avail-booked); color:#fff; }
+.admin-toast.success{ background:var(--avail-free); color:#fff; }
+
+@media (max-width:600px){
+  .admin-header{ padding:16px 20px; flex-wrap:wrap; gap:10px; }
+  .admin-main{ padding:24px 20px 60px; gap:32px; }
 }
 
 /* ---------- casas: grupos por ubicación ---------- */
