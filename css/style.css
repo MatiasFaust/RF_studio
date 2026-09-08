@@ -657,12 +657,13 @@ section{ padding-top:clamp(64px, 9vw, 108px); padding-bottom:clamp(64px, 9vw, 10
 /* ---------- panel de administración ---------- */
 .admin-body{ background:var(--bg); }
 .admin-login{
+  display:none;
   min-height:100vh;
-  display:flex;
   align-items:center;
   justify-content:center;
   padding:24px;
 }
+.admin-login:not([hidden]){ display:flex; }
 .admin-login-card{
   width:100%;
   max-width:380px;
@@ -765,15 +766,16 @@ section{ padding-top:clamp(64px, 9vw, 108px); padding-bottom:clamp(64px, 9vw, 10
 .admin-danger{ color:var(--avail-booked) !important; }
 
 .admin-modal{
+  display:none;
   position:fixed;
   inset:0;
   background:rgba(0,0,0,0.5);
-  display:flex;
   align-items:center;
   justify-content:center;
   z-index:200;
   padding:24px;
 }
+.admin-modal:not([hidden]){ display:flex; }
 .admin-modal-card{
   background:var(--surface);
   border:1px solid var(--line);
