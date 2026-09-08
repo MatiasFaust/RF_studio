@@ -18,14 +18,12 @@
 //   abrirWhatsApp('TERMAS', 'guaviyu-1')
 
 window.RFM_WHATSAPP = (function(){
-  // Números que ya existían en el sitio (mismo número usado hasta ahora
-  // para el estudio y para RFM/Desarrollo).
-  var whatsappArq = '59898357587';
+  // Número del estudio de arquitectura (RF Estudio).
+  var whatsappArq = '59899931883';
+  // Número general de RFM / Desarrollo (el que ya existía en el sitio).
   var whatsappDesarrollo = '59898357587';
-
-  // TODO: reemplazar por el número real de WhatsApp de la administrativa
-  // que gestiona las casas de Las Termas.
-  var whatsappTermas = '598XXXXXXXX';
+  // Número de la empleada administrativa que gestiona las casas de Las Termas.
+  var whatsappTermas = '59899933446';
 
   var MESSAGES = {
     ARQ: '[ARQ] Hola, vengo desde la página de RF Estudio de Arquitectura y quisiera realizar una consulta.',
