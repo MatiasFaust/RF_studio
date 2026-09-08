@@ -691,25 +691,29 @@ section{ padding-top:clamp(64px, 9vw, 108px); padding-bottom:clamp(64px, 9vw, 10
   margin-top:4px;
 }
 .admin-form{ display:flex; flex-direction:column; gap:16px; }
-.admin-form label{
+.admin-form label, .admin-form-row label{
   display:flex;
   flex-direction:column;
-  gap:6px;
+  gap:8px;
   font-family:var(--font-mono);
-  font-size:0.7rem;
+  font-size:0.68rem;
   text-transform:uppercase;
-  letter-spacing:0.03em;
+  letter-spacing:0.04em;
   color:var(--ink-soft);
 }
-.admin-form input, .admin-form select{
+.admin-form input, .admin-form select,
+.admin-form-row input, .admin-form-row select{
   font-family:var(--font-body);
   font-size:0.95rem;
   color:var(--ink);
   background:var(--bg);
   border:1px solid var(--line-strong);
-  padding:10px 12px;
+  padding:11px 12px;
+  height:44px;
+  width:100%;
 }
-.admin-form input:focus, .admin-form select:focus{
+.admin-form input:focus, .admin-form select:focus,
+.admin-form-row input:focus, .admin-form-row select:focus{
   outline:2px solid var(--accent);
   outline-offset:1px;
 }
