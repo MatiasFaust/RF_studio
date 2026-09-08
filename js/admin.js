@@ -295,7 +295,11 @@
       var tdHouse = document.createElement('td'); tdHouse.textContent = houseName(b.house_id);
       var tdIn = document.createElement('td'); tdIn.textContent = b.check_in;
       var tdOut = document.createElement('td'); tdOut.textContent = b.check_out;
-      var tdStatus = document.createElement('td'); tdStatus.textContent = b.status === 'bloqueado' ? 'No disponible' : 'Alquilado';
+      var tdStatus = document.createElement('td');
+      var badge = document.createElement('span');
+      badge.className = 'admin-badge ' + (b.status === 'bloqueado' ? 'admin-badge-blocked' : 'admin-badge-rented');
+      badge.textContent = b.status === 'bloqueado' ? 'No disponible' : 'Alquilado';
+      tdStatus.appendChild(badge);
       var tdNote = document.createElement('td'); tdNote.textContent = b.guest_note || '';
 
       var tdActions = document.createElement('td');
