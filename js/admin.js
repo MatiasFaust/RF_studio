@@ -39,7 +39,7 @@
   var formMessage = document.getElementById('form-message');
 
   var calendarEl = document.getElementById('admin-calendar');
-  var calendarHouseName = document.getElementById('calendar-house-name');
+  var calendarHouseSelect = document.getElementById('calendar-house-select');
   var tbody = document.getElementById('bookings-tbody');
 
   var confirmModal = document.getElementById('confirm-modal');
@@ -124,10 +124,12 @@
 
   // ---------- Init ----------
   function init(){
-    houseSelect.innerHTML = HOUSES.map(function(h){
+    var houseOptions = HOUSES.map(function(h){
       return '<option value="' + h.id + '">' + h.name + '</option>';
     }).join('');
-    houseSelect.addEventListener('change', renderCalendar);
+    houseSelect.innerHTML = houseOptions;
+    calendarHouseSelect.innerHTML = houseOptions;
+    calendarHouseSelect.addEventListener('change', renderCalendar);
     checkInInput.min = U.toISO(new Date());
     checkInInput.addEventListener('change', function(){
       checkOutInput.min = checkInInput.value;
@@ -229,14 +231,14 @@
     saveBtn.textContent = 'Guardar cambios';
     cancelEditBtn.hidden = false;
     formMessage.hidden = true;
+    calendarHouseSelect.value = b.house_id;
     renderCalendar();
     document.getElementById('form-title').scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
   // ---------- Calendar ----------
   function renderCalendar(){
-    var houseId = houseSelect.value;
-    calendarHouseName.textContent = houseName(houseId);
+    var houseId = calendarHouseSelect.value;
     var bookings = allBookings.filter(function(b){ return b.house_id === houseId; });
 
     var year = calendarView.getFullYear(), month = calendarView.getMonth();
